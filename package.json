@@ -1,0 +1,32 @@
+{
+  "name": "todolist-frontend",
+  "version": "1.0.0",
+  "description": "TodoList Web Client that is written in TypeScript using React, Redux on Next.js",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alikemalcelenk/todolist-frontend.git"
+  },
+  "keywords": [],
+  "author": "Ali Kemal Çelenk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alikemalcelenk/todolist-frontend/issues"
+  },
+  "homepage": "https://github.com/alikemalcelenk/todolist-frontend#readme",
+  "dependencies": {
+    "next": "^11.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.21",
+    "typescript": "^4.4.3"
+  }
+}
