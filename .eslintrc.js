@@ -29,6 +29,7 @@ module.exports = {
     '@typescript-eslint/camelcase': 'off',
     'import/prefer-default-export': 'off',
     'react/react-in-jsx-scope': 'off',
+    'import/no-extraneous-dependencies': 'off',
     'prettier/prettier': [
       'error',
       {
