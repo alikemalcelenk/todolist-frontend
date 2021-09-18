@@ -7,6 +7,11 @@
   font: inherit;
 }
 
+/* button focus olduğunda borderı 0 lamak için ekledim. */
+*:focus {
+  outline: 0 !important;
+}
+
 body {
   background-color: var(--c-background);
   font-family: SFProDisplay-Medium;

@@ -1,0 +1,14 @@
+.box {
+  height: 100%;
+  width: 60px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: transparent;
+  background-color: var(--c-orange);
+}
+
+.icon {
+  height: 15px;
+  width: 15px;
+  color: var(--c-white);
+}

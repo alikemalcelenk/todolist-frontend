@@ -2,8 +2,12 @@ import { Story } from '@storybook/react'
 
 // components
 import NavigationButtonComponent from '../components/Navigation/Button'
-import NavigationComponent from '../components/Navigation/index'
-import LogoComponent from '../components/Logo/index'
+import NavigationComponent from '../components/Navigation'
+import LogoComponent from '../components/Logo'
+import AddTaskBarButtonComponent from '../components/AddTaskBar/Button'
+
+// elements
+import Box from '../components/Elements/box'
 
 export default {
   title: 'Buttons'
@@ -22,3 +26,9 @@ export const Navigation: Story = () => (
 )
 
 export const Logo: Story = () => <LogoComponent />
+
+export const AddTask: Story = () => (
+  <Box className="addTaskBox">
+    <AddTaskBarButtonComponent addTask={() => true} />
+  </Box>
+)

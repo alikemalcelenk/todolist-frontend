@@ -6,3 +6,7 @@
   padding: 20px;
   gap: 20px;
 }
+
+.addTaskBox {
+  height: 40px;
+}
