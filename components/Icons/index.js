@@ -1,0 +1,5 @@
+export { default as CheckCircle } from './CheckCircle'
+export { default as Logo } from './Logo'
+export { default as Pen } from './Pen'
+export { default as Plus } from './Plus'
+export { default as Wastebasket } from './Wastebasket'

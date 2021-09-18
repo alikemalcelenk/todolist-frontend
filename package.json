@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "svgr": "svgr icons -d components/Icons --icon"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,7 @@
     "@storybook/addon-essentials": "^6.3.8",
     "@storybook/addon-links": "^6.3.8",
     "@storybook/react": "^6.3.8",
+    "@svgr/cli": "^5.5.0",
     "@types/react": "^17.0.21",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
