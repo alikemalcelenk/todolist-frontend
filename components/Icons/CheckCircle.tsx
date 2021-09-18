@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-function SvgCheckCircle(props) {
+function SvgCheckCircle(props: React.SVGProps<SVGSVGElement>): any {
   return (
     <svg
       width="1em"

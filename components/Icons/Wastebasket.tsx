@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-function SvgWastebasket(props) {
+function SvgWastebasket(props: React.SVGProps<SVGSVGElement>): any {
   return (
     <svg
       width="1em"

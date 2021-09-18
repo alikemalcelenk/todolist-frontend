@@ -10,7 +10,7 @@
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "svgr": "svgr icons -d components/Icons --icon"
+    "svgr": "svgr icons -d components/Icons --typescript --icon"
   },
   "repository": {
     "type": "git",

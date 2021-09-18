@@ -1,0 +1,28 @@
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: transparent;
+  width: fit-content;
+}
+
+.text {
+  font-size: 14px;
+  color: var(--c-white);
+}
+
+.selectedButtonText {
+  color: var(--c-orange);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .box:hover .text {
+    color: var(--c-orange);
+  }
+  .box:hover {
+    background-color: var(--c-orange-10);
+  }
+}
