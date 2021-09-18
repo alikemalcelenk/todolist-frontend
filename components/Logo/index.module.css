@@ -1,0 +1,19 @@
+.box {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.icon {
+  height: 30px;
+  width: 22px;
+  margin-right: 10px;
+  color: var(--c-orange);
+}
+
+.name {
+  font-size: 18px;
+  color: var(--c-white);
+  font-family: SFProDisplay-SemiBold;
+}
