@@ -9,4 +9,28 @@
 
 body {
   background-color: var(--c-background);
+  font-family: SFProDisplay-Medium;
+  color: var(--c-white);
+  font-size: 14px;
+}
+
+@font-face {
+  font-family: SFProDisplay-SemiBold;
+  font-display: swap;
+  src: url('../fonts/subset-SFProDisplay-Semibold.woff2') format('woff2'),
+    url('../fonts/subset-SFProDisplay-Semibold.woff') format('woff');
+}
+
+@font-face {
+  font-family: SFProDisplay-Medium;
+  font-display: swap;
+  src: url('../fonts/subset-SFProDisplay-Medium.woff2') format('woff2'),
+    url('../fonts/subset-SFProDisplay-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: SFProDisplay-RegularItalic;
+  font-display: swap;
+  src: url('../fonts/subset-SFProDisplay-RegularItalic.woff2') format('woff2'),
+    url('../fonts/subset-SFProDisplay-RegularItalic.woff') format('woff');
 }
