@@ -1,0 +1,80 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.leftContent {
+  background-color: transparent;
+  height: 26px;
+  width: 26px;
+}
+
+.emptyCheckBox {
+  height: 22px;
+  width: 22px;
+  border: 2px solid;
+  border-color: var(--c-white);
+  border-radius: 999px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.checkCircleIcon {
+  height: 26px;
+  width: 26px;
+  color: var(--c-white);
+  cursor: pointer;
+}
+
+.midContent {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-left: 10px;
+  margin-right: 10px;
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+
+.taskText {
+  --textDecoration: none;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: var(--textDecoration);
+  -webkit-text-decoration: var(--textDecoration);
+}
+
+.rightContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.dateText {
+  margin-right: 10px;
+  font-size: 12px;
+  color: var(--c-midGray);
+  font-family: SFProDisplay-RegularItalic;
+}
+
+.iconButton {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.wastebasketIcon {
+  height: 26px;
+  width: 22px;
+  color: var(--c-orange);
+}
+
+.penIcon {
+  height: 26px;
+  width: 27px;
+  color: var(--c-orange);
+  margin-right: 10px;
+}

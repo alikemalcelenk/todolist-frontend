@@ -3,7 +3,6 @@
   width: 60px;
   border-radius: 5px;
   cursor: pointer;
-  background-color: transparent;
   background-color: var(--c-orange);
 }
 
