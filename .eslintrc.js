@@ -31,6 +31,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'import/no-extraneous-dependencies': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'prettier/prettier': [
       'error',
       {
