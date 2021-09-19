@@ -1,4 +1,5 @@
 import { useState, FunctionComponent, CSSProperties } from 'react'
+import cn from 'classnames'
 
 // styles
 import styles from './index.module.css'
@@ -19,9 +20,13 @@ import { Task as TaskType } from '../../config/types'
 
 type TaskCardContentType = {
   task: TaskType
+  className?: string
 }
 
-const TaskCard: FunctionComponent<TaskCardContentType> = ({ task }) => {
+const TaskCard: FunctionComponent<TaskCardContentType> = ({
+  task,
+  className
+}) => {
   const [isCompleted, setIsCompleted] = useState<boolean>(task.isCompleted)
 
   const deleteTask = () => {
@@ -44,7 +49,7 @@ const TaskCard: FunctionComponent<TaskCardContentType> = ({ task }) => {
   const createdTime = TimeCalculator({ createdAt: task.created_at })
 
   return (
-    <Box className={styles.root}>
+    <Box className={cn(styles.root, className)}>
       <Button
         className={styles.leftContent}
         onClick={() => {
@@ -77,6 +82,10 @@ const TaskCard: FunctionComponent<TaskCardContentType> = ({ task }) => {
       </Box>
     </Box>
   )
+}
+
+TaskCard.defaultProps = {
+  className: ''
 }
 
 export default TaskCard
