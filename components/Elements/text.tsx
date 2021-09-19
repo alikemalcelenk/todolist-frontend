@@ -10,7 +10,7 @@ import {
   typography
 } from 'styled-system'
 
-const Text = styled.span(
+const Text = styled.span<any>(
   compose(color, size, space, flexbox, border, layout, typography)
 )
 

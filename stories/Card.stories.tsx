@@ -4,7 +4,7 @@ import { Story } from '@storybook/react'
 import TaskCardComponent from '../components/TaskCard'
 
 export default {
-  title: 'Cards'
+  title: 'Card'
 }
 
 const task = {

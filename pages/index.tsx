@@ -1,7 +1,19 @@
 import { FunctionComponent } from 'react'
 
+// components
+import Layout from '../components/Layout/index'
+
+// elements
+import Box from '../components/Elements/box'
+
 const HomePage: FunctionComponent = () => {
-  return <div style={{ color: 'white' }}>Welcome to Next.js!</div>
+  return (
+    <Layout>
+      <Box style={{ backgroundColor: 'green' }} />
+      <Box style={{ backgroundColor: 'blue' }} />
+      <Box style={{ backgroundColor: 'orange' }} />
+    </Layout>
+  )
 }
 
 export default HomePage

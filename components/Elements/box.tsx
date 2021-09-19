@@ -11,7 +11,7 @@ import {
   typography
 } from 'styled-system'
 
-const Box = styled.div(
+const Box = styled.div<any>(
   compose(color, size, space, flexbox, border, layout, position, typography)
 )
 

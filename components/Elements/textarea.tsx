@@ -11,7 +11,7 @@ import {
   typography
 } from 'styled-system'
 
-const Textarea = styled.textarea(
+const Textarea = styled.textarea<any>(
   compose(color, size, space, flexbox, border, layout, position, typography)
 )
 

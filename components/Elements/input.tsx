@@ -11,7 +11,7 @@ import {
   typography
 } from 'styled-system'
 
-const Input = styled.input(
+const Input = styled.input<any>(
   compose(color, size, space, flexbox, border, layout, position, typography)
 )
 
