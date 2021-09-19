@@ -1,0 +1,29 @@
+.root {
+  display: flex;
+  padding: 15px 24px 15px 24px;
+}
+
+.line {
+  height: 1px;
+  width: 100%;
+  background-color: var(--c-darkGray);
+}
+
+.input {
+  display: flex;
+  flex-grow: 1;
+  padding: 10px 20px 10px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 14px;
+  max-height: 400px;
+  min-height: 15px;
+  color: var(--c-white);
+  background-color: var(--c-darkGray);
+  word-break: break-word;
+}
+
+.input::placeholder {
+  color: var(--c-midGray);
+}

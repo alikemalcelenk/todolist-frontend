@@ -1,0 +1,17 @@
+.root {
+  display: flex;
+  align-items: center;
+  padding: 15px 24px 15px 24px;
+}
+
+.penIcon {
+  height: 26px;
+  width: 22px;
+  color: var(--c-orange);
+  margin-right: 8px;
+}
+
+.title {
+  font-size: 14px;
+  font-family: SFProDisplay-SemiBold;
+}

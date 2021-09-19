@@ -1,0 +1,18 @@
+.root {
+  padding: 10px 24px 10px 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.updateBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 0px 4px 0px;
+  width: 75px;
+  background-color: var(--c-orange);
+  border-radius: 3px;
+  cursor: pointer;
+  color: var(--c-white);
+}

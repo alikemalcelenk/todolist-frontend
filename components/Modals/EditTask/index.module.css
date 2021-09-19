@@ -1,0 +1,29 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(8, 12, 15, 0.7);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  width: 100%;
+  max-width: 500px;
+  min-width: 250px;
+  transform: translate(-50%, -50%);
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 20px 10px 20px;
+  border: 2px solid var(--c-darkGray);
+  background-color: var(--c-background);
+  border-radius: 5px;
+}
