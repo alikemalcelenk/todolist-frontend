@@ -9,6 +9,14 @@
   width: fit-content;
 }
 
+.boxMobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
 .text {
   font-size: 14px;
   color: var(--c-white);

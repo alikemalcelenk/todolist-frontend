@@ -1,0 +1,9 @@
+.root {
+  --root-padding: none;
+  background-color: var(--c-darkGray);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--root-padding);
+}

@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react'
 import cn from 'classnames'
+import Link from 'next/link'
 
 // styles
 import styles from './index.module.css'
@@ -7,6 +8,12 @@ import styles from './index.module.css'
 // elements
 import Box from '../../Elements/box'
 import Text from '../../Elements/text'
+
+// hooks
+import useWindowSize from '../../../hooks/useWindowSize'
+
+// env
+import env from '../../../config/env'
 
 type NavigationButtonContentType = {
   type: string
@@ -17,14 +24,26 @@ const NavigationButton: FunctionComponent<NavigationButtonContentType> = ({
   type,
   selected
 }) => {
+  const size = useWindowSize()
+
+  const href = type === 'completed' ? '/completed' : '/incompleted'
+
   return (
-    <Box className={styles.box}>
-      <Text className={cn(styles.text, selected && styles.selectedButtonText)}>
-        {type === 'completed'
-          ? 'Completed'
-          : type === 'incompleted' && 'Incompleted'}
-      </Text>
-    </Box>
+    <Link href={href} passHref>
+      <Box
+        className={
+          size.width < env.MOBILE_WIDTH_SIZE ? styles.boxMobile : styles.box
+        }
+      >
+        <Text
+          className={cn(styles.text, selected && styles.selectedButtonText)}
+        >
+          {type === 'completed'
+            ? 'Completed'
+            : type === 'incompleted' && 'Incompleted'}
+        </Text>
+      </Box>
+    </Link>
   )
 }
 

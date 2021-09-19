@@ -1,4 +1,5 @@
 import { FunctionComponent } from 'react'
+import Link from 'next/link'
 
 // styles
 import styles from './index.module.css'
@@ -12,10 +13,12 @@ import * as Icons from '../Icons'
 
 const Logo: FunctionComponent = () => {
   return (
-    <Box className={styles.box}>
-      <Icons.Logo className={styles.icon} />
-      <Text className={styles.name}>Todolist</Text>
-    </Box>
+    <Link href="./" passHref>
+      <Box className={styles.box}>
+        <Icons.Logo className={styles.icon} />
+        <Text className={styles.name}>Todolist</Text>
+      </Box>
+    </Link>
   )
 }
 

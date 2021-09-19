@@ -7,14 +7,14 @@ import Header from '../components/Header'
 // elements
 import Box from '../components/Elements/box'
 
-const HomePage: FunctionComponent = () => {
+const IncompletedPage: FunctionComponent = () => {
   return (
     <Layout>
-      <Header selectedPage="home" />
-      <Box style={{ backgroundColor: 'blue' }} />
+      <Header selectedPage="incompleted" />
+      <Box style={{ backgroundColor: 'gray' }} />
       <Box style={{ backgroundColor: 'orange' }} />
     </Layout>
   )
 }
 
-export default HomePage
+export default IncompletedPage
