@@ -3,6 +3,7 @@ import { FunctionComponent } from 'react'
 // components
 import Layout from '../components/Layout'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 // elements
 import Box from '../components/Elements/box'
@@ -12,7 +13,7 @@ const IncompletedPage: FunctionComponent = () => {
     <Layout>
       <Header selectedPage="incompleted" />
       <Box style={{ backgroundColor: 'gray' }} />
-      <Box style={{ backgroundColor: 'orange' }} />
+      <Footer />
     </Layout>
   )
 }

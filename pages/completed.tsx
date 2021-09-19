@@ -3,6 +3,7 @@ import { FunctionComponent } from 'react'
 // components
 import Layout from '../components/Layout'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 // elements
 import Box from '../components/Elements/box'
@@ -12,7 +13,7 @@ const CompletedPage: FunctionComponent = () => {
     <Layout>
       <Header selectedPage="completed" />
       <Box style={{ backgroundColor: 'purple' }} />
-      <Box style={{ backgroundColor: 'orange' }} />
+      <Footer />
     </Layout>
   )
 }

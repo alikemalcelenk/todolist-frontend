@@ -1,0 +1,10 @@
+.root {
+  background-color: var(--c-darkGray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  font-size: 14px;
+}
