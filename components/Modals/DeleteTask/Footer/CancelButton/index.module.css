@@ -1,0 +1,10 @@
+.cancelButton {
+  display: flex;
+  margin-right: 10px;
+  padding: 4px 14px 4px 14px;
+  border: 1px solid var(--c-white);
+  background-color: transparent;
+  border-radius: 3px;
+  cursor: pointer;
+  color: var(--c-white);
+}

@@ -7,12 +7,15 @@ import styles from './index.module.css'
 import Box from '../../../Elements/box'
 import Textarea from '../../../Elements/textarea'
 
-type ContentType = {
+type ContentPageContentType = {
   newTask: string
   onTaskChange: (value: any) => void
 }
 
-const Content: FunctionComponent<ContentType> = ({ newTask, onTaskChange }) => {
+const Content: FunctionComponent<ContentPageContentType> = ({
+  newTask,
+  onTaskChange
+}) => {
   return (
     <>
       <Box className={styles.line} />

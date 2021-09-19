@@ -24,8 +24,8 @@ type TaskCardContentType = {
 const TaskCard: FunctionComponent<TaskCardContentType> = ({ task }) => {
   const [isCompleted, setIsCompleted] = useState<boolean>(task.isCompleted)
 
-  const removeTask = () => {
-    console.log('Task is removed')
+  const deleteTask = () => {
+    console.log('Task is deleted')
   }
 
   const editTask = () => {
@@ -71,7 +71,7 @@ const TaskCard: FunctionComponent<TaskCardContentType> = ({ task }) => {
           <Icons.Pen className={styles.penIcon} />
         </Button>
 
-        <Button className={styles.iconButton} onClick={removeTask}>
+        <Button className={styles.iconButton} onClick={deleteTask}>
           <Icons.Wastebasket className={styles.wastebasketIcon} />
         </Button>
       </Box>

@@ -1,0 +1,20 @@
+.root {
+  padding: 15px 24px 15px 24px;
+}
+
+.description {
+  font-size: 14px;
+  font-family: SFProDisplay-Medium;
+}
+
+.descriptionTaskName {
+  font-family: SFProDisplay-RegularItalic;
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+
+.line {
+  height: 1px;
+  width: 100%;
+  background-color: var(--c-darkGray);
+}

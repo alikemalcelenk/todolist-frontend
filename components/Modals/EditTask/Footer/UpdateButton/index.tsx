@@ -12,12 +12,12 @@ import Text from '../../../../Elements/text'
 // types
 import { Task as TaskType } from '../../../../../config/types'
 
-type UpdateButtonType = {
+type UpdateButtonContentType = {
   task: TaskType
   newTask: string
 }
 
-const UpdateButton: FunctionComponent<UpdateButtonType> = ({
+const UpdateButton: FunctionComponent<UpdateButtonContentType> = ({
   task,
   newTask
 }) => {
