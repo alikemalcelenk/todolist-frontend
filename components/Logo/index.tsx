@@ -13,7 +13,7 @@ import * as Icons from '../Icons'
 
 const Logo: FunctionComponent = () => {
   return (
-    <Link href="./" passHref>
+    <Link href="/" passHref>
       <Box className={styles.box}>
         <Icons.Logo className={styles.icon} />
         <Text className={styles.name}>Todolist</Text>

@@ -38,7 +38,7 @@ const HomePageContent: FunctionComponent<HomePageContentType> = ({
   const TaskCards =
     tasks instanceof Array &&
     tasks.map((task: TaskType) => (
-      <TaskCard task={task} className={styles.taskCard} />
+      <TaskCard key={task._id} task={task} className={styles.taskCard} />
     ))
 
   useEffect(() => {

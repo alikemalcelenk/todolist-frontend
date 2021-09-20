@@ -6,10 +6,16 @@ import '../styles/app.css'
 
 // redux
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
 import { reducer } from '../redux/reducers'
+import mySaga from '../redux/sagas/index'
 
-const store = createStore(reducer)
+const sagaMiddleware = createSagaMiddleware()
+const store = createStore(reducer, applyMiddleware(sagaMiddleware))
+
+// then run the saga
+sagaMiddleware.run(mySaga)
 
 const MyApp: FunctionComponent<AppProps> = (props: AppProps) => {
   const { Component, pageProps } = props

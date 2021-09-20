@@ -33,6 +33,8 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     'react/jsx-props-no-spreading': 'off',
     'no-shadow': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'no-underscore-dangle': 'off',
     'prettier/prettier': [
       'error',
       {
