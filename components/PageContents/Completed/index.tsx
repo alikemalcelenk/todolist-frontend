@@ -1,17 +1,22 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useEffect } from 'react'
+
+// redux
+import { connect } from 'react-redux'
+import { getTasks, toggleIscompletedOfTask } from '../../../redux/actions'
+import { completedTaskSelector } from '../../../redux/selectors/index'
 
 // styles
 import styles from './index.module.css'
 
 // components
-import TaskCard from '../../TaskCard/index'
+import TaskCard from '../../TaskCard'
+import Spinner from '../../Spinner'
+import DeleteTaskModal from '../../Modals/DeleteTask'
+import EditTaskModal from '../../Modals/EditTask'
 
 // elements
 import Box from '../../Elements/box'
 import Text from '../../Elements/text'
-
-// test data
-import tasks from '../../../tasks'
 
 // hooks
 import useWindowSize from '../../../hooks/useWindowSize'
@@ -19,13 +24,73 @@ import useWindowSize from '../../../hooks/useWindowSize'
 // env
 import env from '../../../config/env'
 
-const CompletedPageContent: FunctionComponent = () => {
+// types
+import {
+  Task as TaskType,
+  Tasks as TasksType,
+  TaskReducerState as TaskReducerStateType
+} from '../../../config/types'
+
+type CompletedPageContentType = {
+  tasks: TasksType
+  isLoadingGetTasks: boolean
+  isErrorGetTasks: boolean
+  getTasks: () => TasksType
+  toggleIscompletedOfTask: () => void
+}
+
+const CompletedPageContent: FunctionComponent<CompletedPageContentType> = ({
+  tasks,
+  isLoadingGetTasks,
+  isErrorGetTasks,
+  getTasks,
+  toggleIscompletedOfTask
+}) => {
   const size = useWindowSize()
 
-  const TaskCards = tasks.map(
-    (task) =>
-      task.isCompleted && <TaskCard task={task} className={styles.taskCard} />
-  )
+  const [modalTask, setModalTask] = React.useState<TaskType>()
+  const [isVisibleDeleteTaskModal, setIsVisibleDeleteTaskModal] = // Modal for deleteTask
+    React.useState(false)
+  const [isVisibleEditTaskModal, setIsVisibleEditTaskModal] = // Modal for editTask
+    React.useState(false)
+
+  useEffect(() => {
+    // bu if kontrolünü yapma sebebim pageler arasında dolaşırken datalar çekilmişse bir daha fetch atmasını engellemek. Redux'da tutuyorum zaten.
+    if (tasks instanceof Array && tasks.length === 0) {
+      getTasks()
+    }
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const openDeleteTaskModal = (data: any) => {
+    setModalTask(data.task)
+    setIsVisibleDeleteTaskModal(true)
+  }
+
+  const closeDeleteTaskModal = () => {
+    setIsVisibleDeleteTaskModal(false)
+  }
+
+  const openEditTaskModal = (data: any) => {
+    setModalTask(data.task)
+    setIsVisibleEditTaskModal(true)
+  }
+
+  const closeEditTaskModal = () => {
+    setIsVisibleEditTaskModal(false)
+  }
+
+  const TaskCards =
+    tasks instanceof Array &&
+    tasks.map((task: TaskType) => (
+      <TaskCard
+        key={task._id}
+        task={task}
+        className={styles.taskCard}
+        openDeleteTaskModal={openDeleteTaskModal}
+        openEditTaskModal={openEditTaskModal}
+        toggleIscompletedOfTask={toggleIscompletedOfTask}
+      />
+    ))
 
   return (
     <Box
@@ -37,6 +102,18 @@ const CompletedPageContent: FunctionComponent = () => {
             : '0px 40px 0px 40px'
       }}
     >
+      <DeleteTaskModal
+        task={modalTask!}
+        isVisible={isVisibleDeleteTaskModal}
+        closeModal={closeDeleteTaskModal}
+      />
+
+      <EditTaskModal
+        task={modalTask!}
+        isVisible={isVisibleEditTaskModal}
+        closeModal={closeEditTaskModal}
+      />
+
       <Box className={styles.listBox}>
         <Box
           className={
@@ -46,11 +123,48 @@ const CompletedPageContent: FunctionComponent = () => {
           }
         >
           <Text className={styles.listTitle}>Completed Tasks</Text>
-          {TaskCards}
+
+          {isLoadingGetTasks ? (
+            <Spinner type="content" />
+          ) : (
+            <>
+              {isErrorGetTasks ? (
+                <Text className={styles.warnText}>
+                  While fetching the tasks, an error occurred. Please try again.
+                </Text>
+              ) : (
+                <>
+                  {tasks instanceof Array && tasks.length === 0 ? (
+                    <Text className={styles.warnText}>
+                      There are not any completed tasks in our records.
+                    </Text>
+                  ) : (
+                    TaskCards
+                  )}
+                </>
+              )}
+            </>
+          )}
         </Box>
       </Box>
     </Box>
   )
 }
 
-export default CompletedPageContent
+const mapStateToProps = (state: TaskReducerStateType) => {
+  return {
+    tasks: completedTaskSelector(state.tasks),
+    isLoadingGetTasks: state.isLoadingGetTasks,
+    isErrorGetTasks: state.isErrorGetTasks
+  }
+}
+
+const mapActionsToProps = {
+  getTasks,
+  toggleIscompletedOfTask
+}
+
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(CompletedPageContent as any)

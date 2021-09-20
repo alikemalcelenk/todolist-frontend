@@ -55,7 +55,10 @@ const HomePageContent: FunctionComponent<HomePageContentType> = ({
     React.useState(false)
 
   useEffect(() => {
-    getTasks()
+    // bu if kontrolünü yapma sebebim pageler arasında dolaşırken datalar çekilmişse bir daha fetch atmasını engellemek. Redux'da tutuyorum zaten.
+    if (tasks instanceof Array && tasks.length === 0) {
+      getTasks()
+    }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   const openDeleteTaskModal = (data: any) => {
