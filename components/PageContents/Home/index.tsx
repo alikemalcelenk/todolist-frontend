@@ -64,7 +64,8 @@ const HomePageContent: FunctionComponent<HomePageContentType> = ({
             : '0px 40px 0px 40px'
       }}
     >
-      <AddTaskBar className={styles.addTaskBar} />
+      {/*Type ‘{}’ is not assignable to type ‘IntrinsicAttributes &... hatasından kurtulamk için createElement ile oluşturdum */}
+      {React.createElement(AddTaskBar, { className: styles.addTaskBar })}
 
       <Box className={styles.listBox}>
         <Box
@@ -77,7 +78,7 @@ const HomePageContent: FunctionComponent<HomePageContentType> = ({
           <Text className={styles.listTitle}>All Tasks</Text>
 
           {isLoadingGetTasks ? (
-            <Spinner />
+            <Spinner type="content" />
           ) : (
             <>
               {isErrorGetTasks ? (

@@ -6,7 +6,7 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:@next/next/recommended'
   ],
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'redux'],
   env: {
     browser: true,
     es6: true

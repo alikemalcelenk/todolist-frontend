@@ -11,11 +11,14 @@ export type Tasks = {
 
 export type TaskAction = {
   type: string
-  tasks: Task[] | []
+  tasks?: Task[] | []
+  task?: Task
 }
 
 export type TaskReducerState = {
   tasks: Task[] | []
-  isLoadingGetTasks: boolean
-  isErrorGetTasks: boolean
+  isLoadingGetTasks?: boolean
+  isErrorGetTasks?: boolean
+  isLoadingAddTask?: boolean
+  isErrorAnyRequest?: boolean
 }

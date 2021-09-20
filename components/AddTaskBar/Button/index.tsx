@@ -4,8 +4,12 @@ import cn from 'classnames'
 // styles
 import styles from './index.module.css'
 
+// components
+import Spinner from '../../Spinner/index'
+
 // elements
 import Button from '../../Elements/button'
+import Box from '../../Elements/box'
 
 // icons
 import * as Icons from '../../Icons'
@@ -13,16 +17,26 @@ import * as Icons from '../../Icons'
 type AddTaskBarButtonContentType = {
   className?: string
   addTask: () => void
+  isLoadingAddTask: boolean
 }
 
 const AddTaskBarButton: FunctionComponent<AddTaskBarButtonContentType> = ({
   className,
-  addTask
+  addTask,
+  isLoadingAddTask
 }) => {
   return (
-    <Button className={cn(styles.box, className)} onClick={addTask}>
-      <Icons.Plus className={styles.icon} />
-    </Button>
+    <>
+      {isLoadingAddTask ? (
+        <Box className={cn(styles.box, className)} onClick={addTask}>
+          <Spinner type="bar" />
+        </Box>
+      ) : (
+        <Button className={cn(styles.box, className)} onClick={addTask}>
+          <Icons.Plus className={styles.icon} />
+        </Button>
+      )}
+    </>
   )
 }
 
