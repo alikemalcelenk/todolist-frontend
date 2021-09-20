@@ -6,7 +6,7 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:@next/next/recommended'
   ],
-  plugins: ['react', '@typescript-eslint', 'redux'],
+  plugins: ['react', '@typescript-eslint'],
   env: {
     browser: true,
     es6: true
@@ -35,6 +35,7 @@ module.exports = {
     'no-shadow': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'no-underscore-dangle': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
     'prettier/prettier': [
       'error',
       {

@@ -6,6 +6,7 @@ const initialState: TaskReducerState = {
   isLoadingGetTasks: false,
   isErrorGetTasks: false,
   isLoadingAddTask: false,
+  isLoadingDeleteTask: false,
   isErrorAnyRequest: false
 }
 
@@ -14,6 +15,7 @@ export const reducer = (
   action: TaskAction
 ): TaskReducerState => {
   let newTasks
+  let taskIndex
 
   switch (action.type) {
     // GET_TASKS
@@ -50,5 +52,30 @@ export const reducer = (
 
     case 'REQUEST_ADD_TASK_FAILED':
       return { ...state, isLoadingAddTask: false, isErrorAnyRequest: true }
+
+    // DELETE_TASK
+    case 'REQUEST_DELETE_TASK':
+      return {
+        ...state,
+        isLoadingDeleteTask: true
+      }
+
+    case 'REQUEST_DELETE_TASK_SUCCESS':
+      taskIndex = state.tasks.findIndex((task) => task._id === action.taskId)
+      newTasks = [...state.tasks]
+      newTasks.splice(taskIndex, 1)
+
+      return {
+        ...state,
+        tasks: newTasks,
+        isLoadingDeleteTask: false
+      }
+
+    case 'REQUEST_DELETE_TASK_FAILED':
+      return {
+        ...state,
+        isLoadingDeleteTask: false,
+        isErrorAnyRequest: true
+      }
   }
 }

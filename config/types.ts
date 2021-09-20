@@ -13,6 +13,7 @@ export type TaskAction = {
   type: string
   tasks?: Task[] | []
   task?: Task
+  taskId?: string
 }
 
 export type TaskReducerState = {
@@ -21,4 +22,5 @@ export type TaskReducerState = {
   isErrorGetTasks?: boolean
   isLoadingAddTask?: boolean
   isErrorAnyRequest?: boolean
+  isLoadingDeleteTask?: boolean
 }

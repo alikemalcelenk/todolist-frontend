@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react'
+import { FunctionComponent, createElement } from 'react'
 import Modal from 'react-modal'
 
 // styles
@@ -37,7 +37,8 @@ const DeleteTaskModal: FunctionComponent<DeleteTaskModalContentType> = ({
       <Box className={styles.root}>
         <Header />
         <Content task={task} />
-        <Footer task={task} closeModal={closeModal} />
+        {/* Type ‘{}’ is not assignable to type ‘IntrinsicAttributes &... hatasından kurtulamk için createElement ile oluşturdum */}
+        {createElement(Footer, { task, closeModal })}
       </Box>
     </Modal>
   )

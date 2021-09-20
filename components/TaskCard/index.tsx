@@ -18,20 +18,26 @@ import * as Icons from '../Icons'
 // types
 import { Task as TaskType } from '../../config/types'
 
+// hooks
+import useWindowSize from '../../hooks/useWindowSize'
+
+// env
+import env from '../../config/env'
+
 type TaskCardContentType = {
   task: TaskType
   className?: string
+  openDeleteTaskModal: (task: any) => void
 }
 
 const TaskCard: FunctionComponent<TaskCardContentType> = ({
   task,
-  className
+  className,
+  openDeleteTaskModal
 }) => {
-  const [isCompleted, setIsCompleted] = useState<boolean>(task.isCompleted)
+  const size = useWindowSize()
 
-  const deleteTask = () => {
-    console.log('Task is deleted')
-  }
+  const [isCompleted, setIsCompleted] = useState<boolean>(task.isCompleted)
 
   const editTask = () => {
     console.log('Task is edited')
@@ -67,16 +73,25 @@ const TaskCard: FunctionComponent<TaskCardContentType> = ({
         <Text className={styles.taskText} style={taskTestInnerStyle}>
           {task.description}
         </Text>
+
+        {size.width < env.TABLET_WIDTH_SIZE && (
+          <Text className={styles.dateText}>{createdTime}</Text>
+        )}
       </Box>
 
       <Box className={styles.rightContent}>
-        <Text className={styles.dateText}>{createdTime}</Text>
+        {size.width >= env.TABLET_WIDTH_SIZE && (
+          <Text className={styles.dateText}>{createdTime}</Text>
+        )}
 
         <Button className={styles.iconButton} onClick={editTask}>
           <Icons.Pen className={styles.penIcon} />
         </Button>
 
-        <Button className={styles.iconButton} onClick={deleteTask}>
+        <Button
+          className={styles.iconButton}
+          onClick={() => openDeleteTaskModal({ task })}
+        >
           <Icons.Wastebasket className={styles.wastebasketIcon} />
         </Button>
       </Box>

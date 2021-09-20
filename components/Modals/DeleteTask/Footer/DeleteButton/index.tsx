@@ -12,13 +12,17 @@ import { Task as TaskType } from '../../../../../config/types'
 
 type DeleteButtonContentType = {
   task: TaskType
+  deleteTask: (taskId: any) => void
 }
 
-const DeleteButton: FunctionComponent<DeleteButtonContentType> = ({ task }) => {
+const DeleteButton: FunctionComponent<DeleteButtonContentType> = ({
+  task,
+  deleteTask
+}) => {
   return (
     <Button
       className={styles.deleteButton}
-      onClick={() => console.log({ message: 'task was deleted', task })}
+      onClick={() => deleteTask({ taskId: task._id })}
     >
       <Text>Delete</Text>
     </Button>

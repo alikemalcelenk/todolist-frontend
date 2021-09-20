@@ -30,10 +30,23 @@ function* addTask({ description }: any): any {
   }
 }
 
+function* deleteTask({ taskId }: any): any {
+  try {
+    yield put({ type: 'REQUEST_DELETE_TASK' })
+    yield call(() => {
+      return axios.delete(`${env.API_SERVICE_URL}/${taskId}`)
+    })
+    yield put({ type: 'REQUEST_DELETE_TASK_SUCCESS', taskId })
+  } catch (error) {
+    yield put({ type: 'REQUEST_DELETE_TASK_FAILED' })
+  }
+}
+
 // watch
 function* mySaga() {
   yield takeEvery('GET_TASKS', getTasks)
   yield takeEvery('ADD_TASK', addTask)
+  yield takeEvery('DELETE_TASK', deleteTask)
 }
 
 export default mySaga

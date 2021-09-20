@@ -9,8 +9,9 @@ import styles from './index.module.css'
 
 // components
 import AddTaskBar from '../../AddTaskBar'
-import TaskCard from '../../TaskCard/index'
-import Spinner from '../../Spinner/index'
+import TaskCard from '../../TaskCard'
+import Spinner from '../../Spinner'
+import DeleteTaskModal from '../../Modals/DeleteTask'
 
 // elements
 import Box from '../../Elements/box'
@@ -44,15 +45,33 @@ const HomePageContent: FunctionComponent<HomePageContentType> = ({
 }) => {
   const size = useWindowSize()
 
-  const TaskCards =
-    tasks instanceof Array &&
-    tasks.map((task: TaskType) => (
-      <TaskCard key={task._id} task={task} className={styles.taskCard} />
-    ))
+  const [modalTask, setModalTask] = React.useState<TaskType>()
+  const [isVisibleDeleteTaskModal, setIsVisibleDeleteTaskModal] = // Modal for deleteTask
+    React.useState(false)
 
   useEffect(() => {
     getTasks()
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const openDeleteTaskModal = ({ task }: any) => {
+    setModalTask(task)
+    setIsVisibleDeleteTaskModal(true)
+  }
+
+  const closeDeleteTaskModal = () => {
+    setIsVisibleDeleteTaskModal(false)
+  }
+
+  const TaskCards =
+    tasks instanceof Array &&
+    tasks.map((task: TaskType) => (
+      <TaskCard
+        key={task._id}
+        task={task}
+        className={styles.taskCard}
+        openDeleteTaskModal={openDeleteTaskModal}
+      />
+    ))
 
   return (
     <Box
@@ -64,7 +83,13 @@ const HomePageContent: FunctionComponent<HomePageContentType> = ({
             : '0px 40px 0px 40px'
       }}
     >
-      {/*Type ‘{}’ is not assignable to type ‘IntrinsicAttributes &... hatasından kurtulamk için createElement ile oluşturdum */}
+      <DeleteTaskModal
+        task={modalTask!}
+        isVisible={isVisibleDeleteTaskModal}
+        closeModal={closeDeleteTaskModal}
+      />
+
+      {/* Type ‘{}’ is not assignable to type ‘IntrinsicAttributes &... hatasından kurtulamk için createElement ile oluşturdum */}
       {React.createElement(AddTaskBar, { className: styles.addTaskBar })}
 
       <Box className={styles.listBox}>
