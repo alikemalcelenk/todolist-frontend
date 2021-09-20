@@ -6,9 +6,16 @@ export type Task = {
 }
 
 export type Tasks = {
-  tasks: Task[]
+  tasks: Task[] | []
 }
 
 export type TaskAction = {
   type: string
+  tasks: Task[] | []
+}
+
+export type TaskReducerState = {
+  tasks: Task[] | []
+  isLoadingGetTasks: boolean
+  isErrorGetTasks: boolean
 }

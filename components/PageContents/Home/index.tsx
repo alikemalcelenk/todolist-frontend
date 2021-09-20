@@ -22,7 +22,11 @@ import useWindowSize from '../../../hooks/useWindowSize'
 import env from '../../../config/env'
 
 // types
-import { Task as TaskType, Tasks as TasksType } from '../../../config/types'
+import {
+  Task as TaskType,
+  Tasks as TasksType,
+  TaskReducerState as TaskReducerStateType
+} from '../../../config/types'
 
 type HomePageContentType = {
   tasks: TasksType
@@ -42,9 +46,7 @@ const HomePageContent: FunctionComponent<HomePageContentType> = ({
     ))
 
   useEffect(() => {
-    setTimeout(() => {
-      getTasks()
-    }, 3000)
+    getTasks()
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
@@ -75,7 +77,7 @@ const HomePageContent: FunctionComponent<HomePageContentType> = ({
   )
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: TaskReducerStateType) => {
   return {
     tasks: state.tasks
   }
