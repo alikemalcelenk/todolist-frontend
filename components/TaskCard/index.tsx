@@ -1,4 +1,4 @@
-import { useState, FunctionComponent, CSSProperties } from 'react'
+import { FunctionComponent, CSSProperties } from 'react'
 import cn from 'classnames'
 
 // styles
@@ -29,25 +29,23 @@ type TaskCardContentType = {
   className?: string
   openDeleteTaskModal: (task: any) => void
   openEditTaskModal: (task: any) => void
+  toggleIscompletedOfTask: (task: any) => void
 }
 
 const TaskCard: FunctionComponent<TaskCardContentType> = ({
   task,
   className,
   openDeleteTaskModal,
-  openEditTaskModal
+  openEditTaskModal,
+  toggleIscompletedOfTask
 }) => {
   const size = useWindowSize()
 
-  const [isCompleted, setIsCompleted] = useState<boolean>(task.isCompleted)
-
-  const toogleIsCompleted = () => {
-    setIsCompleted(!isCompleted)
-  }
-
   // CSSProperties olarak belirtmem gerekiyor yoksa --textDecoration'ın type'ından dolayı hata veriyor
   const taskTestInnerStyle = {
-    '--textDecoration': isCompleted ? 'line-through var(--c-green)' : 'none'
+    '--textDecoration': task.isCompleted
+      ? 'line-through var(--c-green)'
+      : 'none'
   } as CSSProperties
 
   const createdTime = TimeCalculator({ createdAt: task.created_at })
@@ -57,10 +55,13 @@ const TaskCard: FunctionComponent<TaskCardContentType> = ({
       <Button
         className={styles.leftContent}
         onClick={() => {
-          toogleIsCompleted()
+          toggleIscompletedOfTask({
+            taskId: task._id,
+            isCompleted: task.isCompleted
+          })
         }}
       >
-        {isCompleted ? (
+        {task.isCompleted ? (
           <Icons.CheckCircle className={styles.checkCircleIcon} />
         ) : (
           <Box className={styles.emptyCheckBox} />

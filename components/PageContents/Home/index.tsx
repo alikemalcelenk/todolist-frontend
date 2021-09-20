@@ -2,7 +2,7 @@ import React, { FunctionComponent, useEffect } from 'react'
 
 // redux
 import { connect } from 'react-redux'
-import { getTasks } from '../../../redux/actions'
+import { getTasks, toggleIscompletedOfTask } from '../../../redux/actions'
 
 // styles
 import styles from './index.module.css'
@@ -36,13 +36,15 @@ type HomePageContentType = {
   isLoadingGetTasks: boolean
   isErrorGetTasks: boolean
   getTasks: () => TasksType
+  toggleIscompletedOfTask: () => void
 }
 
 const HomePageContent: FunctionComponent<HomePageContentType> = ({
   tasks,
   isLoadingGetTasks,
   isErrorGetTasks,
-  getTasks
+  getTasks,
+  toggleIscompletedOfTask
 }) => {
   const size = useWindowSize()
 
@@ -56,8 +58,8 @@ const HomePageContent: FunctionComponent<HomePageContentType> = ({
     getTasks()
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const openDeleteTaskModal = (task: any) => {
-    setModalTask(task)
+  const openDeleteTaskModal = (data: any) => {
+    setModalTask(data.task)
     setIsVisibleDeleteTaskModal(true)
   }
 
@@ -83,6 +85,7 @@ const HomePageContent: FunctionComponent<HomePageContentType> = ({
         className={styles.taskCard}
         openDeleteTaskModal={openDeleteTaskModal}
         openEditTaskModal={openEditTaskModal}
+        toggleIscompletedOfTask={toggleIscompletedOfTask}
       />
     ))
 
@@ -158,7 +161,8 @@ const mapStateToProps = (state: TaskReducerStateType) => {
 }
 
 const mapActionsToProps = {
-  getTasks
+  getTasks,
+  toggleIscompletedOfTask
 }
 
 export default connect(

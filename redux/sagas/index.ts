@@ -36,6 +36,7 @@ function* deleteTask({ taskId }: any): any {
     yield call(() => {
       return axios.delete(`${env.API_SERVICE_URL}/${taskId}`)
     })
+
     yield put({ type: 'REQUEST_DELETE_TASK_SUCCESS', taskId })
   } catch (error) {
     yield put({ type: 'REQUEST_DELETE_TASK_FAILED' })
@@ -60,12 +61,26 @@ function* editTask({ taskId, description }: any): any {
   }
 }
 
+function* toggleIscompletedOfTask({ taskId, isCompleted }: any): any {
+  try {
+    yield call(() => {
+      return axios.put(`${env.API_SERVICE_URL}/${taskId}`, {
+        isCompleted: !isCompleted
+      })
+    })
+    yield put({ type: 'REQUEST_TOGGLE_ISCOMPLETED_OF_TASK_SUCCESS', taskId })
+  } catch (error) {
+    yield put({ type: 'REQUEST_TOGGLE_ISCOMPLETED_OF_TASK_FAILED' })
+  }
+}
+
 // watch
 function* mySaga() {
   yield takeEvery('GET_TASKS', getTasks)
   yield takeEvery('ADD_TASK', addTask)
   yield takeEvery('DELETE_TASK', deleteTask)
   yield takeEvery('EDIT_TASK', editTask)
+  yield takeEvery('TOGGLE_ISCOMPLETED_OF_TASK', toggleIscompletedOfTask)
 }
 
 export default mySaga

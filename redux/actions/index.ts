@@ -18,6 +18,12 @@ type EditTaskAction = {
   description: string
 }
 
+type ToggleIscompletedOfTaskAction = {
+  type: string
+  taskId: string
+  isCompleted: boolean
+}
+
 export const getTasks = (): GetTaskAction => {
   return { type: 'GET_TASKS' }
 }
@@ -35,5 +41,15 @@ export const editTask = (action: any): EditTaskAction => {
     type: 'EDIT_TASK',
     taskId: action.taskId,
     description: action.description
+  }
+}
+
+export const toggleIscompletedOfTask = (
+  action: any
+): ToggleIscompletedOfTaskAction => {
+  return {
+    type: 'TOGGLE_ISCOMPLETED_OF_TASK',
+    taskId: action.taskId,
+    isCompleted: action.isCompleted
   }
 }

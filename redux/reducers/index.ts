@@ -103,5 +103,19 @@ export const reducer = (
         isLoadingEditTask: false,
         isErrorAnyRequest: true
       }
+
+    // TOGGLE_ISCOMPLETED_OF_TASK
+    case 'REQUEST_TOGGLE_ISCOMPLETED_OF_TASK_SUCCESS':
+      taskIndex = state.tasks.findIndex((task) => task._id === action.taskId)
+      newTasks = [...state.tasks]
+      newTasks[taskIndex] = {
+        ...newTasks[taskIndex],
+        isCompleted: !newTasks[taskIndex].isCompleted
+      }
+
+      return { ...state, tasks: newTasks }
+
+    case 'REQUEST_TOGGLE_ISCOMPLETED_OF_TASK_FAILED':
+      return { ...state, isErrorAnyRequest: true }
   }
 }
