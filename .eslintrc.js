@@ -32,6 +32,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'no-shadow': 'off',
     'prettier/prettier': [
       'error',
       {
