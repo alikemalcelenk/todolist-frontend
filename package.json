@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "format": "prettier --write '**/*.ts{,x}'",
+    "lint": "eslint '**/*.ts{,x}'",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "svgr": "svgr icons -d components/Icons --typescript --icon"

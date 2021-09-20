@@ -1,7 +1,7 @@
 import React, { useState, FunctionComponent, useRef, useEffect } from 'react'
 import cn from 'classnames'
 
-//redux
+// redux
 import { connect } from 'react-redux'
 import { addTask } from '../../redux/actions'
 
@@ -16,11 +16,7 @@ import AddTaskButton from './Button'
 import Box from '../Elements/box'
 
 // types
-import {
-  Task as TaskType,
-  Tasks as TasksType,
-  TaskReducerState as TaskReducerStateType
-} from '../../config/types'
+import { TaskReducerState as TaskReducerStateType } from '../../config/types'
 
 type AddTaskBarContentType = {
   className?: string

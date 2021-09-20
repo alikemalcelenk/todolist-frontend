@@ -9,6 +9,7 @@ export default {
 }
 
 const task = {
+  _id: '1',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.',
   isCompleted: false,

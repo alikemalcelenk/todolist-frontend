@@ -13,6 +13,7 @@ import ModalDeleteComponent from '../components/Modals/DeleteTask/Footer/DeleteB
 import Box from '../components/Elements/box'
 
 const task = {
+  _id: '1',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.',
   isCompleted: false,
@@ -39,7 +40,7 @@ export const Logo: Story = () => <LogoComponent />
 
 export const AddTask: Story = () => (
   <Box className="addTaskBox">
-    <AddTaskBarButtonComponent addTask={() => true} />
+    <AddTaskBarButtonComponent addTask={() => true} isLoadingAddTask={false} />
   </Box>
 )
 
@@ -48,7 +49,9 @@ export const ModalCancel: Story = () => (
 )
 
 export const ModalUpdate: Story = () => (
-  <ModalUpdateComponent task={task} newTask="test" />
+  <ModalUpdateComponent task={task} newTask="test" editTask={() => true} />
 )
 
-export const ModalDelete: Story = () => <ModalDeleteComponent task={task} />
+export const ModalDelete: Story = () => (
+  <ModalDeleteComponent task={task} deleteTask={() => true} />
+)

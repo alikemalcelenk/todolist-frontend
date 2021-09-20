@@ -36,6 +36,7 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'no-underscore-dangle': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
+    'no-nested-ternary': 'off',
     'prettier/prettier': [
       'error',
       {
