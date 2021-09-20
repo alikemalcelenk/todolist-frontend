@@ -1,4 +1,4 @@
-import { useEffect, useState, FunctionComponent } from 'react'
+import { useEffect, useState, FunctionComponent, createElement } from 'react'
 import Modal from 'react-modal'
 
 // styles
@@ -30,7 +30,9 @@ const EditTaskModal: FunctionComponent<EditTaskModalContentType> = ({
   const onTaskChange = (event: any): void => setNewTask(event.target.value)
 
   useEffect(() => {
-    setNewTask(task.description)
+    if (task) {
+      setNewTask(task.description)
+    }
   }, [task])
 
   return (
@@ -44,7 +46,8 @@ const EditTaskModal: FunctionComponent<EditTaskModalContentType> = ({
       <Box className={styles.root}>
         <Header />
         <Content newTask={newTask} onTaskChange={onTaskChange} />
-        <Footer task={task} newTask={newTask} closeModal={closeModal} />
+        {/* Type ‘{}’ is not assignable to type ‘IntrinsicAttributes &... hatasından kurtulamk için createElement ile oluşturdum */}
+        {createElement(Footer, { task, newTask, closeModal })}
       </Box>
     </Modal>
   )

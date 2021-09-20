@@ -28,20 +28,18 @@ type TaskCardContentType = {
   task: TaskType
   className?: string
   openDeleteTaskModal: (task: any) => void
+  openEditTaskModal: (task: any) => void
 }
 
 const TaskCard: FunctionComponent<TaskCardContentType> = ({
   task,
   className,
-  openDeleteTaskModal
+  openDeleteTaskModal,
+  openEditTaskModal
 }) => {
   const size = useWindowSize()
 
   const [isCompleted, setIsCompleted] = useState<boolean>(task.isCompleted)
-
-  const editTask = () => {
-    console.log('Task is edited')
-  }
 
   const toogleIsCompleted = () => {
     setIsCompleted(!isCompleted)
@@ -84,7 +82,10 @@ const TaskCard: FunctionComponent<TaskCardContentType> = ({
           <Text className={styles.dateText}>{createdTime}</Text>
         )}
 
-        <Button className={styles.iconButton} onClick={editTask}>
+        <Button
+          className={styles.iconButton}
+          onClick={() => openEditTaskModal({ task })}
+        >
           <Icons.Pen className={styles.penIcon} />
         </Button>
 

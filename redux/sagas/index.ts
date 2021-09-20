@@ -42,11 +42,30 @@ function* deleteTask({ taskId }: any): any {
   }
 }
 
+function* editTask({ taskId, description }: any): any {
+  try {
+    yield put({ type: 'REQUEST_EDIT_TASK' })
+    yield call(() => {
+      return axios.put(`${env.API_SERVICE_URL}/${taskId}`, {
+        description
+      })
+    })
+    yield put({
+      type: 'REQUEST_EDIT_TASK_SUCCESS',
+      taskId,
+      description
+    })
+  } catch (error) {
+    yield put({ type: 'REQUEST_EDIT_TASK_FAILED' })
+  }
+}
+
 // watch
 function* mySaga() {
   yield takeEvery('GET_TASKS', getTasks)
   yield takeEvery('ADD_TASK', addTask)
   yield takeEvery('DELETE_TASK', deleteTask)
+  yield takeEvery('EDIT_TASK', editTask)
 }
 
 export default mySaga

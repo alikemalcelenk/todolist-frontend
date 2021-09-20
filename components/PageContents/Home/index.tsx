@@ -12,6 +12,7 @@ import AddTaskBar from '../../AddTaskBar'
 import TaskCard from '../../TaskCard'
 import Spinner from '../../Spinner'
 import DeleteTaskModal from '../../Modals/DeleteTask'
+import EditTaskModal from '../../Modals/EditTask'
 
 // elements
 import Box from '../../Elements/box'
@@ -48,18 +49,29 @@ const HomePageContent: FunctionComponent<HomePageContentType> = ({
   const [modalTask, setModalTask] = React.useState<TaskType>()
   const [isVisibleDeleteTaskModal, setIsVisibleDeleteTaskModal] = // Modal for deleteTask
     React.useState(false)
+  const [isVisibleEditTaskModal, setIsVisibleEditTaskModal] = // Modal for editTask
+    React.useState(false)
 
   useEffect(() => {
     getTasks()
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const openDeleteTaskModal = ({ task }: any) => {
+  const openDeleteTaskModal = (task: any) => {
     setModalTask(task)
     setIsVisibleDeleteTaskModal(true)
   }
 
   const closeDeleteTaskModal = () => {
     setIsVisibleDeleteTaskModal(false)
+  }
+
+  const openEditTaskModal = (data: any) => {
+    setModalTask(data.task)
+    setIsVisibleEditTaskModal(true)
+  }
+
+  const closeEditTaskModal = () => {
+    setIsVisibleEditTaskModal(false)
   }
 
   const TaskCards =
@@ -70,6 +82,7 @@ const HomePageContent: FunctionComponent<HomePageContentType> = ({
         task={task}
         className={styles.taskCard}
         openDeleteTaskModal={openDeleteTaskModal}
+        openEditTaskModal={openEditTaskModal}
       />
     ))
 
@@ -87,6 +100,12 @@ const HomePageContent: FunctionComponent<HomePageContentType> = ({
         task={modalTask!}
         isVisible={isVisibleDeleteTaskModal}
         closeModal={closeDeleteTaskModal}
+      />
+
+      <EditTaskModal
+        task={modalTask!}
+        isVisible={isVisibleEditTaskModal}
+        closeModal={closeEditTaskModal}
       />
 
       {/* Type ‘{}’ is not assignable to type ‘IntrinsicAttributes &... hatasından kurtulamk için createElement ile oluşturdum */}

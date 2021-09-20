@@ -18,7 +18,6 @@ import Box from '../../../Elements/box'
 // types
 import {
   Task as TaskType,
-  Tasks as TasksType,
   TaskReducerState as TaskReducerStateType
 } from '../../../../config/types'
 
@@ -36,14 +35,14 @@ const Footer: FunctionComponent<FooterContentType> = ({
   deleteTask
 }) => {
   const didMount = useRef(false)
-  //bunu ekleme sebebim sayfaya ilk girişte useEffectin çalışmasını istemiyorum. Sadece isLoadingDeleteTask update edildiğinde çalışsın.
+  // bunu ekleme sebebim sayfaya ilk girişte useEffectin çalışmasını istemiyorum. Sadece isLoadingDeleteTask update edildiğinde çalışsın.
   useEffect(() => {
     if (didMount.current && isLoadingDeleteTask === false) {
       closeModal()
     } else {
       didMount.current = true
     }
-  }, [isLoadingDeleteTask])
+  }, [isLoadingDeleteTask]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Box className={styles.root}>

@@ -7,6 +7,7 @@ const initialState: TaskReducerState = {
   isErrorGetTasks: false,
   isLoadingAddTask: false,
   isLoadingDeleteTask: false,
+  isLoadingEditTask: false,
   isErrorAnyRequest: false
 }
 
@@ -61,7 +62,7 @@ export const reducer = (
       }
 
     case 'REQUEST_DELETE_TASK_SUCCESS':
-      taskIndex = state.tasks.findIndex((task) => task._id === action.taskId)
+      taskIndex = state.tasks.findIndex((task) => task._id! === action.taskId)
       newTasks = [...state.tasks]
       newTasks.splice(taskIndex, 1)
 
@@ -75,6 +76,31 @@ export const reducer = (
       return {
         ...state,
         isLoadingDeleteTask: false,
+        isErrorAnyRequest: true
+      }
+
+    // EDIT TASK
+    case 'REQUEST_EDIT_TASK':
+      return {
+        ...state,
+        isLoadingEditTask: true
+      }
+
+    case 'REQUEST_EDIT_TASK_SUCCESS':
+      taskIndex = state.tasks.findIndex((task) => task._id === action.taskId)
+      newTasks = [...state.tasks]
+      newTasks[taskIndex].description = action.description!
+
+      return {
+        ...state,
+        tasks: newTasks,
+        isLoadingEditTask: false
+      }
+
+    case 'REQUEST_EDIT_TASK_FAILED':
+      return {
+        ...state,
+        isLoadingEditTask: false,
         isErrorAnyRequest: true
       }
   }

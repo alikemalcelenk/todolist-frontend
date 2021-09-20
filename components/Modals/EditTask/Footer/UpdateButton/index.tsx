@@ -15,11 +15,13 @@ import { Task as TaskType } from '../../../../../config/types'
 type UpdateButtonContentType = {
   task: TaskType
   newTask: string
+  editTask: (task: any) => void
 }
 
 const UpdateButton: FunctionComponent<UpdateButtonContentType> = ({
   task,
-  newTask
+  newTask,
+  editTask
 }) => {
   return (
     <>
@@ -28,7 +30,7 @@ const UpdateButton: FunctionComponent<UpdateButtonContentType> = ({
       newTask.trim() !== '' ? (
         <Button
           className={styles.updateButton}
-          onClick={() => console.log('task was edited')}
+          onClick={() => editTask({ taskId: task._id, description: newTask })}
         >
           <Text>Update</Text>
         </Button>
