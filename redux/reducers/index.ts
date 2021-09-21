@@ -34,9 +34,6 @@ export const reducer = (
     case 'REQUEST_GET_TASKS_FAILED':
       return { ...state, isLoadingGetTasks: false, isErrorGetTasks: true }
 
-    default:
-      return state
-
     // ADD_TASK
     case 'REQUEST_ADD_TASK':
       return { ...state, isLoadingAddTask: true }
@@ -117,5 +114,12 @@ export const reducer = (
 
     case 'REQUEST_TOGGLE_ISCOMPLETED_OF_TASK_FAILED':
       return { ...state, isErrorAnyRequest: true }
+
+    // SET_IS_ERROR_ANY_REQUEST
+    case 'SET_IS_ERROR_ANY_REQUEST':
+      return { ...state, isErrorAnyRequest: action.isErrorAnyRequest }
+
+    default:
+      return state
   }
 }

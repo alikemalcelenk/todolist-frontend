@@ -24,6 +24,11 @@ type ToggleIscompletedOfTaskAction = {
   isCompleted: boolean
 }
 
+type SetIsErrorAnyRequestAction = {
+  type: string
+  isErrorAnyRequest: boolean
+}
+
 export const getTasks = (): GetTaskAction => {
   return { type: 'GET_TASKS' }
 }
@@ -51,5 +56,14 @@ export const toggleIscompletedOfTask = (
     type: 'TOGGLE_ISCOMPLETED_OF_TASK',
     taskId: action.taskId,
     isCompleted: action.isCompleted
+  }
+}
+
+export const setIsErrorAnyRequest = (
+  action: any
+): SetIsErrorAnyRequestAction => {
+  return {
+    type: 'SET_IS_ERROR_ANY_REQUEST',
+    isErrorAnyRequest: action.isErrorAnyRequest
   }
 }

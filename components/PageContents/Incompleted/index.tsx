@@ -13,6 +13,7 @@ import TaskCard from '../../TaskCard'
 import Spinner from '../../Spinner'
 import DeleteTaskModal from '../../Modals/DeleteTask'
 import EditTaskModal from '../../Modals/EditTask'
+import ErrorAlert from '../../ErrorAlert/index'
 
 // elements
 import Box from '../../Elements/box'
@@ -113,6 +114,8 @@ const IncompletedPageContent: FunctionComponent<IncompletedPageContentType> = ({
         isVisible={isVisibleEditTaskModal}
         closeModal={closeEditTaskModal}
       />
+
+      <ErrorAlert />
 
       <Box className={styles.listBox}>
         <Box

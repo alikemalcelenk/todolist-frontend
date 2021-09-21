@@ -15,6 +15,7 @@ export type TaskAction = {
   task?: Task
   taskId?: string
   description?: string
+  isErrorAnyRequest?: boolean
 }
 
 export type TaskReducerState = {
