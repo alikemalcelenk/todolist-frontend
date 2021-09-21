@@ -6,10 +6,11 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:@next/next/recommended'
   ],
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'jest'],
   env: {
     browser: true,
-    es6: true
+    es6: true,
+    jest: true
   },
   globals: {
     Atomics: 'readonly',

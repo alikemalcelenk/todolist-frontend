@@ -32,7 +32,11 @@ const AddTaskBarButton: FunctionComponent<AddTaskBarButtonContentType> = ({
           <Spinner type="bar" />
         </Box>
       ) : (
-        <Button className={cn(styles.box, className)} onClick={addTask}>
+        <Button
+          aria-label="add-task"
+          className={cn(styles.box, className)}
+          onClick={addTask}
+        >
           <Icons.Plus className={styles.icon} />
         </Button>
       )}

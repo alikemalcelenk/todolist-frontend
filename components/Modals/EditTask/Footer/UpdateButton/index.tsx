@@ -29,6 +29,7 @@ const UpdateButton: FunctionComponent<UpdateButtonContentType> = ({
       task.description !== newTask.trim() &&
       newTask.trim() !== '' ? (
         <Button
+          aria-label="update-modal"
           className={styles.updateButton}
           onClick={() => editTask({ taskId: task._id, description: newTask })}
         >

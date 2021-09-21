@@ -19,7 +19,7 @@ const Spinner: FunctionComponent<SpinnerContentType> = ({
 }) => {
   // Loader a css veremiyoum css için prop oluşturmamışlar. o yüzden inline olarak yazdım.
   return (
-    <Box className={cn(styles.box, className)}>
+    <Box className={cn(styles.box, className)} data-testid="spinner">
       <Loader
         type="Oval"
         color="#F5F6F8"

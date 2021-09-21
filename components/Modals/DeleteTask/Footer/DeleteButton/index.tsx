@@ -21,6 +21,7 @@ const DeleteButton: FunctionComponent<DeleteButtonContentType> = ({
 }) => {
   return (
     <Button
+      aria-label="delete-modal"
       className={styles.deleteButton}
       onClick={() => deleteTask({ taskId: task._id })}
     >

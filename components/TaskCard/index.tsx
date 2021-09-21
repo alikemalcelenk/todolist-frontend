@@ -53,6 +53,7 @@ const TaskCard: FunctionComponent<TaskCardContentType> = ({
   return (
     <Box className={cn(styles.root, className)}>
       <Button
+        aria-label="is-complete"
         className={styles.leftContent}
         onClick={() => {
           toggleIscompletedOfTask({
@@ -69,21 +70,30 @@ const TaskCard: FunctionComponent<TaskCardContentType> = ({
       </Button>
 
       <Box className={styles.midContent}>
-        <Text className={styles.taskText} style={taskTestInnerStyle}>
+        <Text
+          className={styles.taskText}
+          style={taskTestInnerStyle}
+          data-testid="taskcard-description"
+        >
           {task.description}
         </Text>
 
         {size.width < env.TABLET_WIDTH_SIZE && (
-          <Text className={styles.dateText}>{createdTime}</Text>
+          <Text aria-label="crated-time" className={styles.dateText}>
+            {createdTime}
+          </Text>
         )}
       </Box>
 
       <Box className={styles.rightContent}>
         {size.width >= env.TABLET_WIDTH_SIZE && (
-          <Text className={styles.dateText}>{createdTime}</Text>
+          <Text aria-label="crated-time" className={styles.dateText}>
+            {createdTime}
+          </Text>
         )}
 
         <Button
+          aria-label="edit"
           className={styles.iconButton}
           onClick={() => openEditTaskModal({ task })}
         >
@@ -91,6 +101,7 @@ const TaskCard: FunctionComponent<TaskCardContentType> = ({
         </Button>
 
         <Button
+          aria-label="delete"
           className={styles.iconButton}
           onClick={() => openDeleteTaskModal({ task })}
         >
