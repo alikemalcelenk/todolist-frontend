@@ -57,7 +57,7 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
-test('create task method renders correctly in home page', async () => {
+test('delete task method renders correctly in home page', async () => {
   render(
     <Provider>
       <HomePage />

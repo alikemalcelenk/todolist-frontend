@@ -53,7 +53,7 @@ const TaskCard: FunctionComponent<TaskCardContentType> = ({
   return (
     <Box className={cn(styles.root, className)}>
       <Button
-        aria-label="is-complete"
+        aria-label="is-completed"
         className={styles.leftContent}
         onClick={() => {
           toggleIscompletedOfTask({
@@ -65,7 +65,10 @@ const TaskCard: FunctionComponent<TaskCardContentType> = ({
         {task.isCompleted ? (
           <Icons.CheckCircle className={styles.checkCircleIcon} />
         ) : (
-          <Box className={styles.emptyCheckBox} />
+          <Box
+            className={styles.emptyCheckBox}
+            data-testid="taskcard-emptyCircle"
+          />
         )}
       </Button>
 

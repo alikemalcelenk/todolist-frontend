@@ -1,4 +1,5 @@
 import { FunctionComponent } from 'react'
+import Head from 'next/head'
 
 // components
 import Layout from '../components/Layout'
@@ -9,6 +10,10 @@ import Content from '../components/PageContents/Completed'
 const CompletedPage: FunctionComponent = () => {
   return (
     <Layout>
+      <Head>
+        <title>Completed Tasks | Todolist</title>
+      </Head>
+
       <Header selectedPage="completed" />
       <Content />
       <Footer />

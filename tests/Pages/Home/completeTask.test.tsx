@@ -40,8 +40,8 @@ const server = setupServer(
       return res(
         ctx.json({
           task: {
-            description: 'test1 edit',
-            isCompleted: false,
+            description: 'test1',
+            isCompleted: true,
             _id: '6149ed234793cdaf9db22823',
             created_at: new Date('2021-09-21T14:33:07.903Z')
           }
@@ -57,7 +57,7 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
-test('edit task method renders correctly in home page', async () => {
+test('toggle isCompleted of task method renders correctly in home page', async () => {
   render(
     <Provider>
       <HomePage />
@@ -69,23 +69,16 @@ test('edit task method renders correctly in home page', async () => {
   await waitFor(() => expect(loading).not.toBeInTheDocument()) // dataların çekilmesini bekledim
 
   // given
-  const editButton = screen.getAllByRole('button', { name: 'edit' })[0]
-  expect(editButton).toBeInTheDocument()
+  const emptyCircle = screen.queryAllByTestId('taskcard-emptyCircle')[0]
+  expect(emptyCircle).toBeInTheDocument()
+  const isCompletedButton = screen.getAllByRole('button', {
+    name: 'is-completed'
+  })[0]
+  expect(isCompletedButton).toBeInTheDocument()
 
   // when
-  userEvent.click(editButton!) // modal açıldı
-  let editModalInput = screen.getByPlaceholderText('Edit task...')
-  expect(editModalInput).toBeInTheDocument()
-  userEvent.type(editModalInput!, ' edit')
-  const editModalButton = screen.queryByRole('button', {
-    name: 'update-modal'
-  })
-  userEvent.click(editModalButton!)
-  editModalInput = screen.queryByPlaceholderText('Edit task...')! // null kontrolü için query kullandım
-  await waitFor(() => expect(editModalInput).not.toBeInTheDocument())
+  userEvent.click(isCompletedButton)
 
-  // given
-  const newDescription = 'test1 edit'
-  const currentDescription = screen.getAllByTestId('taskcard-description')[0]
-  expect(currentDescription.textContent).toBe(newDescription)
+  // then
+  await waitFor(() => expect(emptyCircle).not.toBeInTheDocument())
 })

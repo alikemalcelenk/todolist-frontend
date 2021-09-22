@@ -1,9 +1,9 @@
 :root {
-  --c-background: #080c0f;
-  --c-darkGray: #151e27;
-  --c-midGray: #8899a6;
-  --c-white: #f5f6f8;
-  --c-green: #1ed760;
-  --c-orange: #f56f28;
-  --c-orange-10: #2b2627;
+  --c-background: rgb(8, 12, 15);
+  --c-darkGray: rgb(21, 30, 39);
+  --c-midGray: rgb(136, 153, 166);
+  --c-white: rgb(245, 245, 258);
+  --c-green: rgb(30, 215, 96);
+  --c-orange: rgb(245, 111, 40);
+  --c-orange-10: rgba(245, 111, 40, 0.1);
 }

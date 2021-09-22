@@ -44,10 +44,10 @@ yarn run dev
 
 ## Project Screenshots
 
-#### Web Browser:
+#### Desktop:
 
-![Web Screenshot](/public/images/web.png)
+![Web Screenshot](/public/screenshots/desktop.png)
 
-#### Mobile Browser:
+#### Mobile:
 
-![Mobile Screenshot](/public/images/mobile.png)
+![Mobile Screenshot](/public/screenshots/mobile.png)

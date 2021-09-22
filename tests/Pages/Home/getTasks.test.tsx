@@ -57,7 +57,7 @@ test('get tasks method renders correctly in home page', async () => {
   // then
   expect(screen.getByText('test1')).toBeInTheDocument()
   expect(
-    screen.getAllByRole('button', { name: 'is-complete' })[0]
+    screen.getAllByRole('button', { name: 'is-completed' })[0]
   ).toBeInTheDocument()
   expect(screen.getAllByRole('button', { name: 'edit' })[0]).toBeInTheDocument()
   expect(
@@ -66,7 +66,7 @@ test('get tasks method renders correctly in home page', async () => {
 
   expect(screen.getByText('test2')).toBeInTheDocument()
   expect(
-    screen.getAllByRole('button', { name: 'is-complete' })[1]
+    screen.getAllByRole('button', { name: 'is-completed' })[1]
   ).toBeInTheDocument()
   expect(screen.getAllByRole('button', { name: 'edit' })[1]).toBeInTheDocument()
   expect(
