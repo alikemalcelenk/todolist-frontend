@@ -37,6 +37,8 @@ yarn run dev
 - svgr
 - styled-system
 - styled-components
+- react-testing-library
+- jest
 - classnames
 - axios
 

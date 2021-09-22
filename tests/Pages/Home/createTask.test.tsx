@@ -15,15 +15,35 @@ import env from '../../../config/env'
 const baseURL = `${env.API_SERVICE_URL}`
 
 const server = setupServer(
+  rest.get(baseURL, (req, res, ctx) => {
+    return res(
+      ctx.json({
+        tasks: [
+          {
+            description: 'test1',
+            isCompleted: false,
+            _id: '6149ed234793cdaf9db22823',
+            created_at: new Date('2021-09-21T14:33:07.903Z')
+          },
+          {
+            description: 'test2',
+            isCompleted: false,
+            _id: '6149ed234793cdaf9db22821',
+            created_at: new Date('2021-09-21T14:33:07.903Z')
+          }
+        ]
+      })
+    )
+  }),
   rest.post(baseURL, (req: any, res, ctx) => {
     if (req.body.description) {
       return res(
         ctx.json({
           task: {
-            description: 'test123',
+            _id: '6149ed234793cdaf9db22822',
+            description: 'Create task',
             isCompleted: false,
-            _id: '6149ed234793cdaf9db22823',
-            created_at: new Date('2021-09-21T14:33:07.903Z')
+            created_at: '2021-09-21T14:33:07.903Z'
           }
         })
       )
@@ -44,23 +64,29 @@ test('create task method renders correctly in home page', async () => {
     </Provider>
   )
 
+  const loading = screen.getByTestId('spinner')
+  expect(loading).toBeInTheDocument()
+  await waitFor(() => expect(loading).not.toBeInTheDocument()) // dataların çekilmesini bekliyor
+
   // given
-  let createButton = screen.queryByRole('button', { name: 'add-task' }) // query kullanma nedenim; hiç eleman olmasa bile null dönmesi
+  let createButton = screen.queryByRole('button', { name: 'add-task' }) // query kullanma nedenim, hiç eleman olmasa bile null dönmesi
   const taskInput = screen.getByPlaceholderText('Add a new task...')
   expect(taskInput).toBeInTheDocument()
   expect(createButton).not.toBeInTheDocument()
   expect(taskInput).toHaveValue('')
 
   // when
-  const taskDescription = 'Test task'
+  const taskDescription = 'Create task'
   userEvent.type(taskInput, taskDescription)
-  expect(taskInput).toHaveValue('Test task')
-  createButton = screen.queryByRole('button', { name: 'add-task' })
+  expect(taskInput).toHaveValue('Create task')
+  createButton = screen.getByRole('button', { name: 'add-task' })
   expect(createButton).toBeInTheDocument()
-  userEvent.click(createButton!)
+  userEvent.click(createButton)
 
   // then
   await waitFor(() => expect(taskInput).toHaveValue(''))
-  createButton = screen.queryByRole('button', { name: 'add-task' })
-  expect(createButton).not.toBeInTheDocument()
+  expect(
+    screen.queryByRole('button', { name: 'add-task' })
+  ).not.toBeInTheDocument()
+  expect(screen.getByText(taskDescription))
 })

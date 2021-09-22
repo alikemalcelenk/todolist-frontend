@@ -64,31 +64,29 @@ test('create task method renders correctly in home page', async () => {
     </Provider>
   )
 
-  const loading = screen.queryByTestId('spinner')
+  const loading = screen.getByTestId('spinner')
   expect(loading).toBeInTheDocument()
   await waitFor(() => expect(loading).not.toBeInTheDocument()) // dataların çekilmesini bekledim
 
   // given
-  const deleteButton = screen.queryAllByRole('button', { name: 'delete' })[0]
-  const secondTaskDescription = screen.queryAllByTestId(
-    'taskcard-description'
-  )[1] // 2. taskin açıklaması. 1. sıradakini sildiğim için silindikten sonra 1. sıra bu olmuş mu onu kontrol edicem.
+  const deleteButton = screen.getAllByRole('button', { name: 'delete' })[0]
+  const secondTaskDescription = screen.getAllByTestId('taskcard-description')[1] // 2. taskin açıklaması. 1. sıradakini sildiğim için silindikten sonra 1. sıra bu olmuş mu onu kontrol edicem.
   expect(deleteButton).toBeInTheDocument()
 
   // when
   userEvent.click(deleteButton!)
-  const deleteModalButton = screen.queryByRole('button', {
+  const deleteModalButton = screen.getByRole('button', {
     name: 'delete-modal'
   })
   userEvent.click(deleteModalButton!)
   await waitFor(() =>
     expect(
-      screen.queryByTestId('modal-deletebutton-box')
+      screen.queryByTestId('modal-deletebutton-box') // null kontrolü için query kullandım
     ).not.toBeInTheDocument()
   )
 
-  // given modal-deletebutton-box
+  // given
   expect(secondTaskDescription.textContent).toBe(
-    screen.queryAllByTestId('taskcard-description')[0].textContent
+    screen.getAllByTestId('taskcard-description')[0].textContent
   )
 })

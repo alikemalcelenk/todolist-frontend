@@ -64,28 +64,28 @@ test('create task method renders correctly in home page', async () => {
     </Provider>
   )
 
-  const loading = screen.queryByTestId('spinner')
+  const loading = screen.getByTestId('spinner')
   expect(loading).toBeInTheDocument()
   await waitFor(() => expect(loading).not.toBeInTheDocument()) // dataların çekilmesini bekledim
 
   // given
-  const editButton = screen.queryAllByRole('button', { name: 'edit' })[0]
+  const editButton = screen.getAllByRole('button', { name: 'edit' })[0]
   expect(editButton).toBeInTheDocument()
 
   // when
   userEvent.click(editButton!) // modal açıldı
-  let editModalInput = screen.queryByPlaceholderText('Edit task...')
+  let editModalInput = screen.getByPlaceholderText('Edit task...')
   expect(editModalInput).toBeInTheDocument()
   userEvent.type(editModalInput!, ' edit')
   const editModalButton = screen.queryByRole('button', {
     name: 'update-modal'
   })
   userEvent.click(editModalButton!)
-  editModalInput = screen.queryByPlaceholderText('Edit task...')
+  editModalInput = screen.queryByPlaceholderText('Edit task...')! // null kontrolü için query kullandım
   await waitFor(() => expect(editModalInput).not.toBeInTheDocument())
 
   // given
   const newDescription = 'test1 edit'
-  const currentDescription = screen.queryAllByTestId('taskcard-description')[0]
+  const currentDescription = screen.getAllByTestId('taskcard-description')[0]
   expect(currentDescription.textContent).toBe(newDescription)
 })

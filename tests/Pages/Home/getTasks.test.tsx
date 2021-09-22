@@ -48,7 +48,7 @@ test('get tasks method renders correctly in home page', async () => {
   )
 
   // given
-  const loading = screen.queryByTestId('spinner')
+  const loading = screen.getByTestId('spinner')
   expect(loading).toBeInTheDocument()
 
   // when
