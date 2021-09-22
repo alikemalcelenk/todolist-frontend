@@ -27,7 +27,7 @@ const server = setupServer(
           },
           {
             description: 'test2',
-            isCompleted: false,
+            isCompleted: true,
             _id: '6149ed234793cdaf9db22821',
             created_at: new Date('2021-09-21T14:33:07.903Z')
           }
@@ -36,12 +36,12 @@ const server = setupServer(
     )
   }),
   rest.put(`${baseURL}/6149ed234793cdaf9db22823`, (req: any, res, ctx) => {
-    if (req.body.description) {
+    if (req.body.isCompleted) {
       return res(
         ctx.json({
           task: {
             description: 'test1',
-            isCompleted: true,
+            isCompleted: req.body.isCompleted,
             _id: '6149ed234793cdaf9db22823',
             created_at: new Date('2021-09-21T14:33:07.903Z')
           }
@@ -69,16 +69,28 @@ test('toggle isCompleted of task method renders correctly in home page', async (
   await waitFor(() => expect(loading).not.toBeInTheDocument()) // dataların çekilmesini bekledim
 
   // given
-  const emptyCircle = screen.queryAllByTestId('taskcard-emptyCircle')[0]
-  expect(emptyCircle).toBeInTheDocument()
   const isCompletedButton = screen.getAllByRole('button', {
     name: 'is-completed'
   })[0]
   expect(isCompletedButton).toBeInTheDocument()
 
+  // Completed case
   // when
   userEvent.click(isCompletedButton)
 
   // then
-  await waitFor(() => expect(emptyCircle).not.toBeInTheDocument())
+  await waitFor(() =>
+    expect(screen.queryByTestId('taskcard-emptyCircle')).not.toBeInTheDocument()
+  )
+  expect(screen.getAllByTestId('taskcard-checkCircle').length).toBe(2)
+
+  // Inompleted case
+  // when
+  userEvent.click(isCompletedButton)
+
+  // then
+  await waitFor(() =>
+    expect(screen.queryByTestId('taskcard-emptyCircle')).toBeInTheDocument()
+  )
+  expect(screen.getAllByTestId('taskcard-checkCircle').length).toBe(1)
 })

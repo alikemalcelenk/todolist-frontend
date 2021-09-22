@@ -36,20 +36,16 @@ const server = setupServer(
     )
   }),
   rest.put(`${baseURL}/6149ed234793cdaf9db22823`, (req: any, res, ctx) => {
-    if (req.body.description) {
-      return res(
-        ctx.json({
-          task: {
-            description: 'test1 edit',
-            isCompleted: false,
-            _id: '6149ed234793cdaf9db22823',
-            created_at: new Date('2021-09-21T14:33:07.903Z')
-          }
-        })
-      )
-    }
-
-    return res()
+    return res(
+      ctx.json({
+        task: {
+          description: 'test1 edit',
+          isCompleted: false,
+          _id: '6149ed234793cdaf9db22823',
+          created_at: new Date('2021-09-21T14:33:07.903Z')
+        }
+      })
+    )
   })
 )
 

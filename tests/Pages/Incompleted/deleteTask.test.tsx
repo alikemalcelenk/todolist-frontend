@@ -6,7 +6,8 @@ import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 
 // components
-import HomePage from '../../../components/PageContents/Home'
+import IncompletedPage from '../../../components/PageContents/Incompleted'
+
 import Provider from '../../provider'
 
 // config
@@ -27,8 +28,14 @@ const server = setupServer(
           },
           {
             description: 'test2',
-            isCompleted: false,
+            isCompleted: true,
             _id: '6149ed234793cdaf9db22821',
+            created_at: new Date('2021-09-21T14:33:07.903Z')
+          },
+          {
+            description: 'test3',
+            isCompleted: false,
+            _id: '6149ed234793cdaf9db22824',
             created_at: new Date('2021-09-21T14:33:07.903Z')
           }
         ]
@@ -53,10 +60,10 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
-test('delete task method renders correctly in home page', async () => {
+test('delete task method renders correctly in incompleted page', async () => {
   render(
     <Provider>
-      <HomePage />
+      <IncompletedPage />
     </Provider>
   )
 

@@ -63,7 +63,12 @@ const TaskCard: FunctionComponent<TaskCardContentType> = ({
         }}
       >
         {task.isCompleted ? (
-          <Icons.CheckCircle className={styles.checkCircleIcon} />
+          <Box
+            className={styles.checkCircleIcon}
+            data-testid="taskcard-checkCircle"
+          >
+            <Icons.CheckCircle className={styles.checkCircleIcon} />
+          </Box>
         ) : (
           <Box
             className={styles.emptyCheckBox}

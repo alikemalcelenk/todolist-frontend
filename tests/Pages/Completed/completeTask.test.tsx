@@ -6,7 +6,7 @@ import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 
 // components
-import HomePage from '../../../components/PageContents/Home'
+import CompletedPage from '../../../components/PageContents/Completed'
 import Provider from '../../provider'
 
 // config
@@ -21,7 +21,7 @@ const server = setupServer(
         tasks: [
           {
             description: 'test1',
-            isCompleted: false,
+            isCompleted: true,
             _id: '6149ed234793cdaf9db22823',
             created_at: new Date('2021-09-21T14:33:07.903Z')
           },
@@ -35,17 +35,21 @@ const server = setupServer(
       })
     )
   }),
-  rest.delete(`${baseURL}/6149ed234793cdaf9db22823`, (req: any, res, ctx) => {
-    return res(
-      ctx.json({
-        task: {
-          description: 'test1',
-          isCompleted: false,
-          _id: '6149ed234793cdaf9db22823',
-          created_at: new Date('2021-09-21T14:33:07.903Z')
-        }
-      })
-    )
+  rest.put(`${baseURL}/6149ed234793cdaf9db22823`, (req: any, res, ctx) => {
+    if (req.body.isCompleted) {
+      return res(
+        ctx.json({
+          task: {
+            description: 'test1',
+            isCompleted: req.body.isCompleted,
+            _id: '6149ed234793cdaf9db22823',
+            created_at: new Date('2021-09-21T14:33:07.903Z')
+          }
+        })
+      )
+    }
+
+    return res()
   })
 )
 
@@ -53,10 +57,10 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
-test('delete task method renders correctly in home page', async () => {
+test('toggle isCompleted of task method renders correctly in completed page', async () => {
   render(
     <Provider>
-      <HomePage />
+      <CompletedPage />
     </Provider>
   )
 
@@ -65,24 +69,16 @@ test('delete task method renders correctly in home page', async () => {
   await waitFor(() => expect(loading).not.toBeInTheDocument()) // dataların çekilmesini bekledim
 
   // given
-  const deleteButton = screen.getAllByRole('button', { name: 'delete' })[0]
-  const secondTaskDescription = screen.getAllByTestId('taskcard-description')[1] // 2. taskin açıklaması. 1. sıradakini sildiğim için silindikten sonra 1. sıra bu olmuş mu onu kontrol edicem.
-  expect(deleteButton).toBeInTheDocument()
+  const checkCircle = screen.queryByTestId('taskcard-checkCircle')
+  const isCompletedButton = screen.getAllByRole('button', {
+    name: 'is-completed'
+  })[0]
+  expect(isCompletedButton).toBeInTheDocument()
+  expect(checkCircle).toBeInTheDocument()
 
   // when
-  userEvent.click(deleteButton!)
-  const deleteModalButton = screen.getByRole('button', {
-    name: 'delete-modal'
-  })
-  userEvent.click(deleteModalButton!)
-  await waitFor(() =>
-    expect(
-      screen.queryByTestId('modal-deletebutton-box') // null kontrolü için query kullandım
-    ).not.toBeInTheDocument()
-  )
+  userEvent.click(isCompletedButton)
 
-  // given
-  expect(secondTaskDescription.textContent).toBe(
-    screen.getAllByTestId('taskcard-description')[0].textContent
-  )
+  // then
+  await waitFor(() => expect(checkCircle).not.toBeInTheDocument())
 })

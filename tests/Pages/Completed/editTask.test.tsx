@@ -6,7 +6,7 @@ import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 
 // components
-import HomePage from '../../../components/PageContents/Home'
+import CompletedPage from '../../../components/PageContents/Completed'
 import Provider from '../../provider'
 
 // config
@@ -21,7 +21,7 @@ const server = setupServer(
         tasks: [
           {
             description: 'test1',
-            isCompleted: false,
+            isCompleted: true,
             _id: '6149ed234793cdaf9db22823',
             created_at: new Date('2021-09-21T14:33:07.903Z')
           },
@@ -30,17 +30,23 @@ const server = setupServer(
             isCompleted: false,
             _id: '6149ed234793cdaf9db22821',
             created_at: new Date('2021-09-21T14:33:07.903Z')
+          },
+          {
+            description: 'test3',
+            isCompleted: true,
+            _id: '6149ed234793cdaf9db22824',
+            created_at: new Date('2021-09-21T14:33:07.903Z')
           }
         ]
       })
     )
   }),
-  rest.delete(`${baseURL}/6149ed234793cdaf9db22823`, (req: any, res, ctx) => {
+  rest.put(`${baseURL}/6149ed234793cdaf9db22823`, (req: any, res, ctx) => {
     return res(
       ctx.json({
         task: {
-          description: 'test1',
-          isCompleted: false,
+          description: 'test1 edit',
+          isCompleted: true,
           _id: '6149ed234793cdaf9db22823',
           created_at: new Date('2021-09-21T14:33:07.903Z')
         }
@@ -53,10 +59,10 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
-test('delete task method renders correctly in home page', async () => {
+test('edit task method renders correctly in completed page', async () => {
   render(
     <Provider>
-      <HomePage />
+      <CompletedPage />
     </Provider>
   )
 
@@ -65,24 +71,23 @@ test('delete task method renders correctly in home page', async () => {
   await waitFor(() => expect(loading).not.toBeInTheDocument()) // dataların çekilmesini bekledim
 
   // given
-  const deleteButton = screen.getAllByRole('button', { name: 'delete' })[0]
-  const secondTaskDescription = screen.getAllByTestId('taskcard-description')[1] // 2. taskin açıklaması. 1. sıradakini sildiğim için silindikten sonra 1. sıra bu olmuş mu onu kontrol edicem.
-  expect(deleteButton).toBeInTheDocument()
+  const editButton = screen.getAllByRole('button', { name: 'edit' })[0]
+  expect(editButton).toBeInTheDocument()
 
   // when
-  userEvent.click(deleteButton!)
-  const deleteModalButton = screen.getByRole('button', {
-    name: 'delete-modal'
+  userEvent.click(editButton!) // modal açıldı
+  let editModalInput = screen.getByPlaceholderText('Edit task...')
+  expect(editModalInput).toBeInTheDocument()
+  userEvent.type(editModalInput!, ' edit')
+  const editModalButton = screen.queryByRole('button', {
+    name: 'update-modal'
   })
-  userEvent.click(deleteModalButton!)
-  await waitFor(() =>
-    expect(
-      screen.queryByTestId('modal-deletebutton-box') // null kontrolü için query kullandım
-    ).not.toBeInTheDocument()
-  )
+  userEvent.click(editModalButton!)
+  editModalInput = screen.queryByPlaceholderText('Edit task...')! // null kontrolü için query kullandım
+  await waitFor(() => expect(editModalInput).not.toBeInTheDocument())
 
   // given
-  expect(secondTaskDescription.textContent).toBe(
-    screen.getAllByTestId('taskcard-description')[0].textContent
-  )
+  const newDescription = 'test1 edit'
+  const currentDescription = screen.getAllByTestId('taskcard-description')[0]
+  expect(currentDescription.textContent).toBe(newDescription)
 })

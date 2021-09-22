@@ -46,7 +46,7 @@ yarn run dev
 
 #### Desktop:
 
-![Web Screenshot](/public/screenshots/desktop.png)
+![Desktop Screenshot](/public/screenshots/desktop.png)
 
 #### Mobile:
 
