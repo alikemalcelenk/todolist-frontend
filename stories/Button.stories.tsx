@@ -5,9 +5,9 @@ import NavigationButtonComponent from '../components/Navigation/Button'
 import NavigationComponent from '../components/Navigation'
 import LogoComponent from '../components/Logo'
 import TaskBarButtonComponent from '../components/TaskBar/Button'
-import ModalCancelComponent from '../components/Modals/EditTask/Footer/CancelButton'
-import ModalUpdateComponent from '../components/Modals/EditTask/Footer/UpdateButton'
-import ModalDeleteComponent from '../components/Modals/DeleteTask/Footer/DeleteButton'
+import ModalCancelComponent from '../components/Modals/TaskEdit/Footer/ButtonCancel'
+import ModalUpdateComponent from '../components/Modals/TaskEdit/Footer/ButtonUpdate'
+import ModalDeleteComponent from '../components/Modals/TaskDelete/Footer/ButtonDelete'
 
 // elements
 import Box from '../components/Elements/Box'

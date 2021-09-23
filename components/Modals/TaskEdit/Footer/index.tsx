@@ -8,8 +8,8 @@ import { editTask } from '../../../../redux/actions'
 import styles from './index.module.css'
 
 // components
-import UpdateButton from './UpdateButton'
-import CancelButton from './CancelButton'
+import UpdateButton from './ButtonUpdate'
+import CancelButton from './ButtonCancel'
 import Spinner from '../../../Spinner'
 
 // elements

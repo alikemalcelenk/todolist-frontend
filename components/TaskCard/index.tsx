@@ -5,7 +5,7 @@ import cn from 'classnames'
 import styles from './index.module.css'
 
 // components
-import TimeCalculator from '../TimeCalculat'
+import TimeCalculator from '../TimeCalculator'
 
 // elements
 import Box from '../Elements/Box'

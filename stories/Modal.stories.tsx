@@ -1,8 +1,8 @@
 import { Story } from '@storybook/react'
 
 // components
-import EditTaskModalComponent from '../components/Modals/EditTask'
-import DeleteTaskModalComponent from '../components/Modals/DeleteTask'
+import EditTaskModalComponent from '../components/Modals/TaskEdit'
+import DeleteTaskModalComponent from '../components/Modals/TaskDelete'
 
 export default {
   title: 'Modals'

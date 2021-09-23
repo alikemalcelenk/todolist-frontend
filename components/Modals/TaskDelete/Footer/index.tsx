@@ -8,8 +8,8 @@ import { deleteTask } from '../../../../redux/actions'
 import styles from './index.module.css'
 
 // components
-import CancelButton from './CancelButton'
-import DeleteButton from './DeleteButton'
+import CancelButton from './ButtonCancel'
+import DeleteButton from './ButtonDelete'
 import Spinner from '../../../Spinner'
 
 // elements

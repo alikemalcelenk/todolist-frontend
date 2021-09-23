@@ -81,7 +81,7 @@ test('delete task method renders correctly in home page', async () => {
   expect(cancelModalButton).toBeInTheDocument()
   userEvent.click(deleteModalButton!)
 
-  // then delete-modal
+  // then
   await waitFor(() => expect(cancelModalButton).not.toBeInTheDocument())
   expect(secondTaskDescription.textContent).toBe(
     screen.getAllByTestId('taskcard-description')[0].textContent

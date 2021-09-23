@@ -11,8 +11,8 @@ import styles from './index.module.css'
 import TaskBar from '../../TaskBar'
 import TaskCard from '../../TaskCard'
 import Spinner from '../../Spinner'
-import DeleteTaskModal from '../../Modals/DeleteTask'
-import EditTaskModal from '../../Modals/EditTask'
+import DeleteTaskModal from '../../Modals/TaskDelete'
+import EditTaskModal from '../../Modals/TaskEdit'
 import ErrorAlert from '../../ErrorAlert'
 
 // elements
