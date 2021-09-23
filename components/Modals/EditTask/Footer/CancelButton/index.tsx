@@ -15,7 +15,11 @@ const CancelButton: FunctionComponent<CancelButtonContentType> = ({
   closeModal
 }) => {
   return (
-    <Button className={styles.cancelButton} onClick={closeModal}>
+    <Button
+      className={styles.cancelButton}
+      onClick={closeModal}
+      aria-label="Cancel in EditTaskModal"
+    >
       <Text>Cancel</Text>
     </Button>
   )

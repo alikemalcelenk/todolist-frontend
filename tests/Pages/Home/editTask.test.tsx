@@ -65,7 +65,7 @@ test('edit task method renders correctly in home page', async () => {
   await waitFor(() => expect(loading).not.toBeInTheDocument()) // dataların çekilmesini bekledim
 
   // given
-  const editButton = screen.getAllByRole('button', { name: 'edit' })[0]
+  const editButton = screen.getAllByRole('button', { name: 'Edit' })[0]
   expect(editButton).toBeInTheDocument()
 
   // when
@@ -74,13 +74,13 @@ test('edit task method renders correctly in home page', async () => {
   expect(editModalInput).toBeInTheDocument()
   userEvent.type(editModalInput!, ' edit')
   const editModalButton = screen.queryByRole('button', {
-    name: 'update-modal'
+    name: 'Edit in Modal'
   })
   userEvent.click(editModalButton!)
   editModalInput = screen.queryByPlaceholderText('Edit task...')! // null kontrolü için query kullandım
   await waitFor(() => expect(editModalInput).not.toBeInTheDocument())
 
-  // given
+  // then
   const newDescription = 'test1 edit'
   const currentDescription = screen.getAllByTestId('taskcard-description')[0]
   expect(currentDescription.textContent).toBe(newDescription)

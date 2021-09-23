@@ -69,7 +69,7 @@ test('create task method renders correctly in home page', async () => {
   await waitFor(() => expect(loading).not.toBeInTheDocument()) // dataların çekilmesini bekliyor
 
   // given
-  let createButton = screen.queryByRole('button', { name: 'add-task' }) // query kullanma nedenim, hiç eleman olmasa bile null dönmesi
+  let createButton = screen.queryByRole('button', { name: 'Add Task' }) // query kullanma nedenim, hiç eleman olmasa bile null dönmesi
   const taskInput = screen.getByPlaceholderText('Add a new task...')
   expect(taskInput).toBeInTheDocument()
   expect(createButton).not.toBeInTheDocument()
@@ -79,14 +79,14 @@ test('create task method renders correctly in home page', async () => {
   const taskDescription = 'Create task'
   userEvent.type(taskInput, taskDescription)
   expect(taskInput).toHaveValue('Create task')
-  createButton = screen.getByRole('button', { name: 'add-task' })
+  createButton = screen.getByRole('button', { name: 'Add Task' })
   expect(createButton).toBeInTheDocument()
   userEvent.click(createButton)
 
   // then
   await waitFor(() => expect(taskInput).toHaveValue(''))
   expect(
-    screen.queryByRole('button', { name: 'add-task' })
+    screen.queryByRole('button', { name: 'Add Task' })
   ).not.toBeInTheDocument()
   expect(screen.getByText(taskDescription))
 })

@@ -71,10 +71,13 @@ test('toggle isCompleted of task method renders correctly in completed page', as
   // given
   const checkCircle = screen.queryByTestId('taskcard-checkCircle')
   const isCompletedButton = screen.getAllByRole('button', {
-    name: 'is-completed'
+    name: 'Switch Case'
   })[0]
   expect(isCompletedButton).toBeInTheDocument()
   expect(checkCircle).toBeInTheDocument()
+  expect(
+    screen.getByText('test1').style.getPropertyValue('--textDecoration')
+  ).toBe('line-through var(--c-green)')
 
   // when
   userEvent.click(isCompletedButton)

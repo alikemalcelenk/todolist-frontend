@@ -33,7 +33,7 @@ const TaskBarButton: FunctionComponent<TaskBarButtonContentType> = ({
         </Box>
       ) : (
         <Button
-          aria-label="add-task"
+          aria-label="Add Task"
           className={cn(styles.box, className)}
           onClick={addTask}
         >

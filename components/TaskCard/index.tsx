@@ -5,7 +5,7 @@ import cn from 'classnames'
 import styles from './index.module.css'
 
 // components
-import TimeCalculator from '../TimeCalculator'
+import TimeCalculator from '../TimeCalculat'
 
 // elements
 import Box from '../Elements/Box'
@@ -53,7 +53,7 @@ const TaskCard: FunctionComponent<TaskCardContentType> = ({
   return (
     <Box className={cn(styles.root, className)}>
       <Button
-        aria-label="is-completed"
+        aria-label="Switch Case"
         className={styles.leftContent}
         onClick={() => {
           toggleIscompletedOfTask({
@@ -87,21 +87,17 @@ const TaskCard: FunctionComponent<TaskCardContentType> = ({
         </Text>
 
         {size.width < env.TABLET_WIDTH_SIZE && (
-          <Text aria-label="crated-time" className={styles.dateText}>
-            {createdTime}
-          </Text>
+          <Text className={styles.dateText}>{createdTime}</Text>
         )}
       </Box>
 
       <Box className={styles.rightContent}>
         {size.width >= env.TABLET_WIDTH_SIZE && (
-          <Text aria-label="crated-time" className={styles.dateText}>
-            {createdTime}
-          </Text>
+          <Text className={styles.dateText}>{createdTime}</Text>
         )}
 
         <Button
-          aria-label="edit"
+          aria-label="Edit"
           className={styles.iconButton}
           onClick={() => openEditTaskModal({ task })}
         >
@@ -109,7 +105,7 @@ const TaskCard: FunctionComponent<TaskCardContentType> = ({
         </Button>
 
         <Button
-          aria-label="delete"
+          aria-label="Delete"
           className={styles.iconButton}
           onClick={() => openDeleteTaskModal({ task })}
         >

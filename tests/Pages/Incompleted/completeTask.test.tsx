@@ -70,9 +70,9 @@ test('toggle isCompleted of task method renders correctly in incompleted page', 
 
   // given
   const emptyCircle = screen.queryByTestId('taskcard-emptyCircle')
-  const isCompletedButton = screen.getAllByRole('button', {
-    name: 'is-completed'
-  })[0]
+  const isCompletedButton = screen.getByRole('button', {
+    name: 'Switch Case'
+  })
   expect(isCompletedButton).toBeInTheDocument()
   expect(emptyCircle).toBeInTheDocument()
 

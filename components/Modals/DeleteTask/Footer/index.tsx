@@ -45,7 +45,7 @@ const Footer: FunctionComponent<FooterContentType> = ({
   }, [isLoadingDeleteTask]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <Box className={styles.root} data-testid="modal-deletebutton-box">
+    <Box className={styles.root}>
       <CancelButton closeModal={closeModal} />
 
       {isLoadingDeleteTask ? (

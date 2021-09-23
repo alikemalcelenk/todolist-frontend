@@ -63,21 +63,26 @@ test('get tasks method renders correctly in completed page', async () => {
   // then
   expect(screen.getByText('test1')).toBeInTheDocument()
   expect(
-    screen.getAllByRole('button', { name: 'is-completed' })[0]
+    screen.getAllByRole('button', { name: 'Switch Case' })[0]
   ).toBeInTheDocument()
-  expect(screen.getAllByRole('button', { name: 'edit' })[0]).toBeInTheDocument()
+  expect(screen.getAllByRole('button', { name: 'Edit' })[0]).toBeInTheDocument()
   expect(
-    screen.getAllByRole('button', { name: 'delete' })[0]
+    screen.getAllByRole('button', { name: 'Delete' })[0]
   ).toBeInTheDocument()
 
   expect(screen.queryByText('test2')).not.toBeInTheDocument()
 
   expect(screen.getByText('test3')).toBeInTheDocument()
   expect(
-    screen.getAllByRole('button', { name: 'is-completed' })[1]
+    screen.getAllByRole('button', { name: 'Switch Case' })[1]
   ).toBeInTheDocument()
-  expect(screen.getAllByRole('button', { name: 'edit' })[1]).toBeInTheDocument()
+  expect(screen.getAllByRole('button', { name: 'Edit' })[1]).toBeInTheDocument()
   expect(
-    screen.getAllByRole('button', { name: 'delete' })[1]
+    screen.getAllByRole('button', { name: 'Delete' })[1]
   ).toBeInTheDocument()
+
+  expect(screen.getAllByTestId('taskcard-description').length).toBe(2)
+  expect(screen.getAllByRole('button', { name: 'Switch Case' }).length).toBe(2)
+  expect(screen.getAllByRole('button', { name: 'Edit' }).length).toBe(2)
+  expect(screen.getAllByRole('button', { name: 'Delete' }).length).toBe(2)
 })

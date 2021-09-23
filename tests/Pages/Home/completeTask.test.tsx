@@ -70,7 +70,7 @@ test('toggle isCompleted of task method renders correctly in home page', async (
 
   // given
   const isCompletedButton = screen.getAllByRole('button', {
-    name: 'is-completed'
+    name: 'Switch Case'
   })[0]
   expect(isCompletedButton).toBeInTheDocument()
 
@@ -82,6 +82,9 @@ test('toggle isCompleted of task method renders correctly in home page', async (
   await waitFor(() =>
     expect(screen.queryByTestId('taskcard-emptyCircle')).not.toBeInTheDocument()
   )
+  expect(
+    screen.getByText('test1').style.getPropertyValue('--textDecoration')
+  ).toBe('line-through var(--c-green)')
   expect(screen.getAllByTestId('taskcard-checkCircle').length).toBe(2)
 
   // Inompleted case
@@ -92,5 +95,8 @@ test('toggle isCompleted of task method renders correctly in home page', async (
   await waitFor(() =>
     expect(screen.queryByTestId('taskcard-emptyCircle')).toBeInTheDocument()
   )
+  expect(
+    screen.getByText('test1').style.getPropertyValue('--textDecoration')
+  ).toBe('none')
   expect(screen.getAllByTestId('taskcard-checkCircle').length).toBe(1)
 })

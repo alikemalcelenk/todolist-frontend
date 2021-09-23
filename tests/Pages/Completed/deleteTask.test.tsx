@@ -71,23 +71,24 @@ test('delete task method renders correctly in completed page', async () => {
   await waitFor(() => expect(loading).not.toBeInTheDocument()) // dataların çekilmesini bekledim
 
   // given
-  const deleteButton = screen.getAllByRole('button', { name: 'delete' })[0]
+  const deleteButton = screen.getAllByRole('button', { name: 'Delete' })[0]
   const secondTaskDescription = screen.getAllByTestId('taskcard-description')[1] // 2. taskin açıklaması. 1. sıradakini sildiğim için silindikten sonra 1. sıra bu olmuş mu onu kontrol edicem.
   expect(deleteButton).toBeInTheDocument()
 
   // when
   userEvent.click(deleteButton!)
   const deleteModalButton = screen.getByRole('button', {
-    name: 'delete-modal'
+    name: 'Delete in Modal'
   })
+  const cancelModalButton = screen.queryByRole('button', {
+    name: 'Cancel in DeleteTaskModal'
+  }) // null kontrolü için query kullandım
+  expect(deleteModalButton).toBeInTheDocument()
+  expect(cancelModalButton).toBeInTheDocument()
   userEvent.click(deleteModalButton!)
 
-  // given
-  await waitFor(() =>
-    expect(
-      screen.queryByTestId('modal-deletebutton-box') // null kontrolü için query kullandım
-    ).not.toBeInTheDocument()
-  )
+  // then
+  await waitFor(() => expect(cancelModalButton).not.toBeInTheDocument())
   expect(secondTaskDescription.textContent).toBe(
     screen.getAllByTestId('taskcard-description')[0].textContent
   )
