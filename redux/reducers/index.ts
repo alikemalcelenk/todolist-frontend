@@ -1,7 +1,10 @@
 // types
-import { TaskAction, TaskReducerState } from '../../config/types'
+import {
+  TaskAction as TaskActionType,
+  TaskReducerState as TaskReducerStateType
+} from '../../config/types'
 
-const initialState: TaskReducerState = {
+const initialState: TaskReducerStateType = {
   tasks: [],
   isLoadingGetTasks: false,
   isErrorGetTasks: false,
@@ -12,9 +15,9 @@ const initialState: TaskReducerState = {
 }
 
 export const reducer = (
-  state: TaskReducerState = initialState,
-  action: TaskAction
-): TaskReducerState => {
+  state: TaskReducerStateType = initialState,
+  action: TaskActionType
+): TaskReducerStateType => {
   let newTasks
   let taskIndex
 

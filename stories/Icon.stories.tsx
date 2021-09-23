@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react'
 
 // components - styled-system
-import Box from '../components/Elements/box'
+import Box from '../components/Elements/Box'
 
 // components - icons
 import * as Icons from '../components/Icons'

@@ -82,13 +82,13 @@ test('delete task method renders correctly in incompleted page', async () => {
     name: 'delete-modal'
   })
   userEvent.click(deleteModalButton!)
+
+  // given
   await waitFor(() =>
     expect(
       screen.queryByTestId('modal-deletebutton-box') // null kontrolü için query kullandım
     ).not.toBeInTheDocument()
   )
-
-  // given
   expect(secondTaskDescription.textContent).toBe(
     screen.getAllByTestId('taskcard-description')[0].textContent
   )

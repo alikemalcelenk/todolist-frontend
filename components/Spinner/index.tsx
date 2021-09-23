@@ -6,7 +6,7 @@ import cn from 'classnames'
 import styles from './index.module.css'
 
 // celements
-import Box from '../Elements/box'
+import Box from '../Elements/Box'
 
 type SpinnerContentType = {
   className?: string

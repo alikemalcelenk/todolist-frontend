@@ -14,7 +14,7 @@ export const parameters = {
 // redux
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import { reducer } from '../redux/reducers/index'
+import { reducer } from '../redux/reducers'
 
 const store = createStore(reducer)
 

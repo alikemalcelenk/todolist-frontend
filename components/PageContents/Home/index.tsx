@@ -8,16 +8,16 @@ import { getTasks, toggleIscompletedOfTask } from '../../../redux/actions'
 import styles from './index.module.css'
 
 // components
-import AddTaskBar from '../../AddTaskBar'
+import TaskBar from '../../TaskBar'
 import TaskCard from '../../TaskCard'
 import Spinner from '../../Spinner'
 import DeleteTaskModal from '../../Modals/DeleteTask'
 import EditTaskModal from '../../Modals/EditTask'
-import ErrorAlert from '../../ErrorAlert/index'
+import ErrorAlert from '../../ErrorAlert'
 
 // elements
-import Box from '../../Elements/box'
-import Text from '../../Elements/text'
+import Box from '../../Elements/Box'
+import Text from '../../Elements/Text'
 
 // hooks
 import useWindowSize from '../../../hooks/useWindowSize'
@@ -118,7 +118,7 @@ const HomePageContent: FunctionComponent<HomePageContentType> = ({
       <ErrorAlert />
 
       {/* Type ‘{}’ is not assignable to type ‘IntrinsicAttributes &... hatasından kurtulamk için createElement ile oluşturdum */}
-      {React.createElement(AddTaskBar, { className: styles.addTaskBar })}
+      {React.createElement(TaskBar, { className: styles.taskBar })}
 
       <Box className={styles.listBox}>
         <Box

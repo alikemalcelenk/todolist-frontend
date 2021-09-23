@@ -5,12 +5,12 @@ import Modal from 'react-modal'
 import styles from './index.module.css'
 
 // components
-import Header from './Header/index'
-import Content from './Content/index'
-import Footer from './Footer/index'
+import Header from './Header'
+import Content from './Content'
+import Footer from './Footer'
 
 // elements
-import Box from '../../Elements/box'
+import Box from '../../Elements/Box'
 
 // types
 import { Task as TaskType } from '../../../config/types'

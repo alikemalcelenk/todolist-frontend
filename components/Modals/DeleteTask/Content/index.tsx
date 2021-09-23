@@ -4,8 +4,8 @@ import { FunctionComponent } from 'react'
 import styles from './index.module.css'
 
 // elements
-import Box from '../../../Elements/box'
-import Text from '../../../Elements/text'
+import Box from '../../../Elements/Box'
+import Text from '../../../Elements/Text'
 
 // types
 import { Task as TaskType } from '../../../../config/types'

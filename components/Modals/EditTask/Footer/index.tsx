@@ -13,7 +13,7 @@ import CancelButton from './CancelButton'
 import Spinner from '../../../Spinner'
 
 // elements
-import Box from '../../../Elements/box'
+import Box from '../../../Elements/Box'
 // types
 import {
   Task as TaskType,

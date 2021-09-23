@@ -5,8 +5,8 @@ import Link from 'next/link'
 import styles from './index.module.css'
 
 // elements
-import Box from '../Elements/box'
-import Text from '../Elements/text'
+import Box from '../Elements/Box'
+import Text from '../Elements/Text'
 
 // icons
 import * as Icons from '../Icons'

@@ -8,12 +8,12 @@ import { deleteTask } from '../../../../redux/actions'
 import styles from './index.module.css'
 
 // components
-import CancelButton from './CancelButton/index'
-import DeleteButton from './DeleteButton/index'
-import Spinner from '../../../Spinner/index'
+import CancelButton from './CancelButton'
+import DeleteButton from './DeleteButton'
+import Spinner from '../../../Spinner'
 
 // elements
-import Box from '../../../Elements/box'
+import Box from '../../../Elements/Box'
 
 // types
 import {

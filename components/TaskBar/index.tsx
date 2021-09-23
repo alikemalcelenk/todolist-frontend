@@ -13,18 +13,18 @@ import AddTaskTextInput from './TextInput'
 import AddTaskButton from './Button'
 
 // elements
-import Box from '../Elements/box'
+import Box from '../Elements/Box'
 
 // types
 import { TaskReducerState as TaskReducerStateType } from '../../config/types'
 
-type AddTaskBarContentType = {
+type TaskBarContentType = {
   className?: string
   addTask: (task: any) => void
   isLoadingAddTask: boolean
 }
 
-const AddTaskBar: FunctionComponent<AddTaskBarContentType> = ({
+const TaskBar: FunctionComponent<TaskBarContentType> = ({
   className,
   addTask,
   isLoadingAddTask
@@ -32,9 +32,8 @@ const AddTaskBar: FunctionComponent<AddTaskBarContentType> = ({
   const [task, setTask] = useState<string>('')
   const onTaskChange = (event: any) => setTask(event.target.value)
 
-  const didMount = useRef(false)
+  const didMount = useRef(false) // bunu ekleme sebebim sayfaya ilk girişte useEffectin çalışmasını istemiyorum. Sadece isLoadingAddTask update edildiğinde çalışsın.
 
-  // bunu ekleme sebebim sayfaya ilk girişte useEffectin çalışmasını istemiyorum. Sadece isLoadingAddTask update edildiğinde çalışsın.
   useEffect(() => {
     if (didMount.current && isLoadingAddTask === false) {
       setTask('')
@@ -68,7 +67,7 @@ const AddTaskBar: FunctionComponent<AddTaskBarContentType> = ({
   )
 }
 
-AddTaskBar.defaultProps = {
+TaskBar.defaultProps = {
   className: ''
 }
 
@@ -82,4 +81,4 @@ const mapActionsToProps = {
   addTask
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(AddTaskBar as any)
+export default connect(mapStateToProps, mapActionsToProps)(TaskBar as any)

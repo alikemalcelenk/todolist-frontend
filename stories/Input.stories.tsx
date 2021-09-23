@@ -1,10 +1,10 @@
 import { Story } from '@storybook/react'
 
 // components
-import AddTaskBarComponent from '../components/AddTaskBar'
+import TaskBarComponent from '../components/TaskBar'
 
 export default {
   title: 'Input'
 }
 
-export const AddTaskBar: Story = () => <AddTaskBarComponent />
+export const TaskBar: Story = () => <TaskBarComponent />

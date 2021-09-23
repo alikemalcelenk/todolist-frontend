@@ -4,8 +4,8 @@ import { FunctionComponent } from 'react'
 import styles from './index.module.css'
 
 // elements
-import Box from '../../../Elements/box'
-import Textarea from '../../../Elements/textarea'
+import Box from '../../../Elements/Box'
+import Textarea from '../../../Elements/Textarea'
 
 type ContentPageContentType = {
   newTask: string

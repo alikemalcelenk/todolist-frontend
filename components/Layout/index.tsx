@@ -4,7 +4,7 @@ import { FunctionComponent } from 'react'
 import styles from './index.module.css'
 
 // elements
-import Box from '../Elements/box'
+import Box from '../Elements/Box'
 
 const Layout: FunctionComponent = ({ children }) => {
   return <Box className={styles.layout}>{children}</Box>

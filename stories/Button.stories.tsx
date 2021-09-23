@@ -4,13 +4,13 @@ import { Story } from '@storybook/react'
 import NavigationButtonComponent from '../components/Navigation/Button'
 import NavigationComponent from '../components/Navigation'
 import LogoComponent from '../components/Logo'
-import AddTaskBarButtonComponent from '../components/AddTaskBar/Button'
-import ModalCancelComponent from '../components/Modals/EditTask/Footer/CancelButton/index'
-import ModalUpdateComponent from '../components/Modals/EditTask/Footer/UpdateButton/index'
-import ModalDeleteComponent from '../components/Modals/DeleteTask/Footer/DeleteButton/index'
+import TaskBarButtonComponent from '../components/TaskBar/Button'
+import ModalCancelComponent from '../components/Modals/EditTask/Footer/CancelButton'
+import ModalUpdateComponent from '../components/Modals/EditTask/Footer/UpdateButton'
+import ModalDeleteComponent from '../components/Modals/DeleteTask/Footer/DeleteButton'
 
 // elements
-import Box from '../components/Elements/box'
+import Box from '../components/Elements/Box'
 
 const task = {
   _id: '1',
@@ -38,9 +38,9 @@ export const Navigation: Story = () => (
 
 export const Logo: Story = () => <LogoComponent />
 
-export const AddTask: Story = () => (
-  <Box className="addTaskBox">
-    <AddTaskBarButtonComponent addTask={() => true} isLoadingAddTask={false} />
+export const Task: Story = () => (
+  <Box className="taskBox">
+    <TaskBarButtonComponent addTask={() => true} isLoadingAddTask={false} />
   </Box>
 )
 

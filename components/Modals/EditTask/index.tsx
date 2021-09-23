@@ -10,7 +10,7 @@ import Content from './Content'
 import Footer from './Footer'
 
 // elements
-import Box from '../../Elements/box'
+import Box from '../../Elements/Box'
 
 // types
 import { Task as TaskType } from '../../../config/types'

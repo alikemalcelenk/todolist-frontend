@@ -3,7 +3,7 @@ import React, { FunctionComponent, useEffect } from 'react'
 // redux
 import { connect } from 'react-redux'
 import { getTasks, toggleIscompletedOfTask } from '../../../redux/actions'
-import { completedTaskSelector } from '../../../redux/selectors/index'
+import { completedTaskSelector } from '../../../redux/selectors'
 
 // styles
 import styles from './index.module.css'
@@ -13,11 +13,11 @@ import TaskCard from '../../TaskCard'
 import Spinner from '../../Spinner'
 import DeleteTaskModal from '../../Modals/DeleteTask'
 import EditTaskModal from '../../Modals/EditTask'
-import ErrorAlert from '../../ErrorAlert/index'
+import ErrorAlert from '../../ErrorAlert'
 
 // elements
-import Box from '../../Elements/box'
-import Text from '../../Elements/text'
+import Box from '../../Elements/Box'
+import Text from '../../Elements/Text'
 
 // hooks
 import useWindowSize from '../../../hooks/useWindowSize'

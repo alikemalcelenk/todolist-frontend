@@ -5,9 +5,9 @@ import cn from 'classnames'
 import styles from './index.module.css'
 
 // elements
-import Box from '../../../../Elements/box'
-import Button from '../../../../Elements/button'
-import Text from '../../../../Elements/text'
+import Box from '../../../../Elements/Box'
+import Button from '../../../../Elements/Button'
+import Text from '../../../../Elements/Text'
 
 // types
 import { Task as TaskType } from '../../../../../config/types'

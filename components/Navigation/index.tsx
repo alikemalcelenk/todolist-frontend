@@ -8,7 +8,7 @@ import styles from './index.module.css'
 import NavigationButton from './Button'
 
 // elements
-import Box from '../Elements/box'
+import Box from '../Elements/Box'
 
 type NavigationContentType = {
   className?: string

@@ -5,22 +5,22 @@ import cn from 'classnames'
 import styles from './index.module.css'
 
 // components
-import Spinner from '../../Spinner/index'
+import Spinner from '../../Spinner'
 
 // elements
-import Button from '../../Elements/button'
-import Box from '../../Elements/box'
+import Button from '../../Elements/Button'
+import Box from '../../Elements/Box'
 
 // icons
 import * as Icons from '../../Icons'
 
-type AddTaskBarButtonContentType = {
+type TaskBarButtonContentType = {
   className?: string
   addTask: () => void
   isLoadingAddTask: boolean
 }
 
-const AddTaskBarButton: FunctionComponent<AddTaskBarButtonContentType> = ({
+const TaskBarButton: FunctionComponent<TaskBarButtonContentType> = ({
   className,
   addTask,
   isLoadingAddTask
@@ -44,8 +44,8 @@ const AddTaskBarButton: FunctionComponent<AddTaskBarButtonContentType> = ({
   )
 }
 
-AddTaskBarButton.defaultProps = {
+TaskBarButton.defaultProps = {
   className: ''
 }
 
-export default AddTaskBarButton
+export default TaskBarButton

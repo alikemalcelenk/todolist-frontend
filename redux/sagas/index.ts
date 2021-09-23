@@ -1,6 +1,14 @@
 import { put, takeEvery, call } from 'redux-saga/effects'
 import axios from 'axios'
 
+// types
+import {
+  AddTaskAction as AddTaskActionType,
+  DeleteTaskAction as DeleteTaskActionType,
+  EditTaskAction as EditTaskActionType,
+  ToggleIscompletedOfTaskAction as ToggleIscompletedOfTaskActionType
+} from '../../config/types'
+
 // env
 import env from '../../config/env'
 
@@ -16,7 +24,7 @@ function* getTasks(): any {
   }
 }
 
-function* addTask({ description }: any): any {
+function* addTask({ description }: AddTaskActionType): any {
   try {
     yield put({ type: 'REQUEST_ADD_TASK' })
     const tasks = yield call(() => {
@@ -30,7 +38,7 @@ function* addTask({ description }: any): any {
   }
 }
 
-function* deleteTask({ taskId }: any): any {
+function* deleteTask({ taskId }: DeleteTaskActionType): any {
   try {
     yield put({ type: 'REQUEST_DELETE_TASK' })
     yield call(() => {
@@ -43,7 +51,7 @@ function* deleteTask({ taskId }: any): any {
   }
 }
 
-function* editTask({ taskId, description }: any): any {
+function* editTask({ taskId, description }: EditTaskActionType): any {
   try {
     yield put({ type: 'REQUEST_EDIT_TASK' })
     yield call(() => {
@@ -61,7 +69,10 @@ function* editTask({ taskId, description }: any): any {
   }
 }
 
-function* toggleIscompletedOfTask({ taskId, isCompleted }: any): any {
+function* toggleIscompletedOfTask({
+  taskId,
+  isCompleted
+}: ToggleIscompletedOfTaskActionType): any {
   try {
     yield call(() => {
       return axios.put(`${env.API_SERVICE_URL}/${taskId}`, {

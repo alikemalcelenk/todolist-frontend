@@ -27,3 +27,35 @@ export type TaskReducerState = {
   isLoadingDeleteTask?: boolean
   isLoadingEditTask?: boolean
 }
+
+// redux
+export type GetTaskAction = {
+  type: string
+}
+
+export type AddTaskAction = {
+  type: string
+  description: string
+}
+
+export type DeleteTaskAction = {
+  type: string
+  taskId: string
+}
+
+export type EditTaskAction = {
+  type: string
+  taskId: string
+  description: string
+}
+
+export type ToggleIscompletedOfTaskAction = {
+  type: string
+  taskId: string
+  isCompleted: boolean
+}
+
+export type SetIsErrorAnyRequestAction = {
+  type: string
+  isErrorAnyRequest: boolean
+}

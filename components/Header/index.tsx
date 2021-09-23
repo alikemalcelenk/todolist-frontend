@@ -4,11 +4,11 @@ import { FunctionComponent } from 'react'
 import styles from './index.module.css'
 
 // components
-import Logo from '../Logo/index'
-import Navigation from '../Navigation/index'
+import Logo from '../Logo'
+import Navigation from '../Navigation'
 
 // elements
-import Box from '../Elements/box'
+import Box from '../Elements/Box'
 
 // hooks
 import useWindowSize from '../../hooks/useWindowSize'
