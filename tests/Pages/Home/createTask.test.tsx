@@ -6,7 +6,7 @@ import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 
 // components
-import HomePage from '../../../components/PageContents/Home'
+import HomePage from '../../../pages'
 import Provider from '../../provider'
 
 // config
@@ -66,7 +66,7 @@ test('create task method renders correctly in home page', async () => {
 
   const loading = screen.getByTestId('spinner')
   expect(loading).toBeInTheDocument()
-  await waitFor(() => expect(loading).not.toBeInTheDocument()) // dataların çekilmesini bekliyor
+  await waitFor(() => expect(loading).not.toBeInTheDocument())
 
   // given
   let createButton = screen.queryByRole('button', { name: 'Add Task' }) // query kullanma nedenim, hiç eleman olmasa bile null dönmesi

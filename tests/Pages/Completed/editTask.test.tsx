@@ -6,7 +6,7 @@ import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 
 // components
-import CompletedPage from '../../../components/PageContents/Completed'
+import CompletedPage from '../../../pages/completed'
 import Provider from '../../provider'
 
 // config
@@ -68,7 +68,7 @@ test('edit task method renders correctly in completed page', async () => {
 
   const loading = screen.getByTestId('spinner')
   expect(loading).toBeInTheDocument()
-  await waitFor(() => expect(loading).not.toBeInTheDocument()) // dataların çekilmesini bekledim
+  await waitFor(() => expect(loading).not.toBeInTheDocument())
 
   // given
   const editButton = screen.getAllByRole('button', { name: 'Edit' })[0]

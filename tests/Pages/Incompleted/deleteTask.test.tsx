@@ -6,7 +6,7 @@ import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 
 // components
-import IncompletedPage from '../../../components/PageContents/Incompleted'
+import IncompletedPage from '../../../pages/incompleted'
 
 import Provider from '../../provider'
 

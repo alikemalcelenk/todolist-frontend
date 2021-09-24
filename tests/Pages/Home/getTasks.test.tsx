@@ -5,7 +5,7 @@ import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 
 // components
-import HomePage from '../../../components/PageContents/Home'
+import HomePage from '../../../pages'
 import Provider from '../../provider'
 
 // config

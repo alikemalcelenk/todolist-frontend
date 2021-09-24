@@ -29,11 +29,10 @@ const UpdateButton: FunctionComponent<UpdateButtonContentType> = ({
     <>
       <Button
         aria-label="Edit in Modal"
-        className={
-          inputControl
-            ? styles.updateButton
-            : cn(styles.updateButton, styles.updateButtonSoft)
-        }
+        className={cn(
+          styles.updateButton,
+          !inputControl && styles.updateButtonSoft
+        )}
         onClick={() => editTask({ taskId: task._id, description: newTask })}
         disabled={!inputControl}
       >
