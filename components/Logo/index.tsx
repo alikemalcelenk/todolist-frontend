@@ -15,7 +15,7 @@ const Logo: FunctionComponent = () => {
   return (
     <Link href="/" passHref>
       <Box className={styles.box}>
-        <Icons.Logo className={styles.icon} />
+        <Icons.Logo className={styles.icon} title="Logo" />
         <Text className={styles.name}>Todolist</Text>
       </Box>
     </Link>

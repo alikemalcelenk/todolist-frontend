@@ -34,6 +34,7 @@ const NavigationButton: FunctionComponent<NavigationButtonContentType> = ({
         className={
           size.width < env.MOBILE_WIDTH_SIZE ? styles.boxMobile : styles.box
         }
+        data-testid="navigation-button"
       >
         <Text
           className={cn(styles.text, selected && styles.selectedButtonText)}
