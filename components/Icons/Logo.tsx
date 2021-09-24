@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 type customType = {
-  title: string
+  title?: string
 }
 
 function SvgLogo(props: React.SVGProps<SVGSVGElement> & customType): any {
@@ -25,6 +25,10 @@ function SvgLogo(props: React.SVGProps<SVGSVGElement> & customType): any {
       </defs>
     </svg>
   )
+}
+
+SvgLogo.defaultProps = {
+  title: 'Logo'
 }
 
 export default SvgLogo
