@@ -5,7 +5,6 @@ import cn from 'classnames'
 import styles from './index.module.css'
 
 // elements
-import Box from '../../../../Elements/Box'
 import Button from '../../../../Elements/Button'
 import Text from '../../../../Elements/Text'
 
@@ -23,23 +22,23 @@ const UpdateButton: FunctionComponent<UpdateButtonContentType> = ({
   newTask,
   editTask
 }) => {
+  const inputControl: boolean | '' =
+    newTask && task.description !== newTask.trim() && newTask.trim() !== ''
+
   return (
     <>
-      {newTask &&
-      task.description !== newTask.trim() &&
-      newTask.trim() !== '' ? (
-        <Button
-          aria-label="Edit in Modal"
-          className={styles.updateButton}
-          onClick={() => editTask({ taskId: task._id, description: newTask })}
-        >
-          <Text>Update</Text>
-        </Button>
-      ) : (
-        <Box className={cn(styles.updateButton, styles.updateButtonSoft)}>
-          <Text>Update</Text>
-        </Box>
-      )}
+      <Button
+        aria-label="Edit in Modal"
+        className={
+          inputControl
+            ? styles.updateButton
+            : cn(styles.updateButton, styles.updateButtonSoft)
+        }
+        onClick={() => editTask({ taskId: task._id, description: newTask })}
+        disabled={!inputControl}
+      >
+        <Text>Update</Text>
+      </Button>
     </>
   )
 }

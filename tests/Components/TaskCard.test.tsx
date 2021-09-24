@@ -47,13 +47,12 @@ test('taskcard renders correctly for completed case', () => {
     'line-through var(--c-green)'
   )
 
-  expect(switchButton.className.includes('checkCircleIcon')).toBe(true)
-  expect(switchButton!.firstElementChild!.getAttribute('title')).toBe(
-    'CheckCircle'
-  )
-
-  expect(editButton.className.includes('iconButton')).toBe(true)
-  expect(editButton!.firstElementChild!.getAttribute('title')).toBe('Pen')
+  expect(
+    switchButton.firstElementChild!.className.includes('checkCircleIcon')
+  ).toBe(true)
+  expect(
+    switchButton!.children[0].firstElementChild!.getAttribute('title')
+  ).toBe('CheckCircle')
 
   expect(editButton.className.includes('iconButton')).toBe(true)
   expect(editButton!.firstElementChild!.getAttribute('title')).toBe('Pen')
@@ -90,12 +89,9 @@ test('taskcard renders correctly for incompleted case', () => {
 
   expect(description.style.getPropertyValue('--textDecoration')).toBe('none')
 
-  expect(switchButton.firstElementChild).toBe(
-    screen.getByTestId('taskcard-emptyCircle')
-  )
-
-  expect(editButton.className.includes('iconButton')).toBe(true)
-  expect(editButton!.firstElementChild!.getAttribute('title')).toBe('Pen')
+  expect(
+    switchButton.firstElementChild!.className.includes('emptyCheckBox')
+  ).toBe(true)
 
   expect(editButton.className.includes('iconButton')).toBe(true)
   expect(editButton!.firstElementChild!.getAttribute('title')).toBe('Pen')

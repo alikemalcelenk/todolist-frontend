@@ -77,11 +77,15 @@ test('edit task method renders correctly in incompleted page', async () => {
   // when
   userEvent.click(editButton!) // modal açıldı
   let editModalInput = screen.getByPlaceholderText('Edit task...')
-  expect(editModalInput).toBeInTheDocument()
-  userEvent.type(editModalInput!, ' edit')
   const editModalButton = screen.queryByRole('button', {
     name: 'Edit in Modal'
   })
+  expect(editModalInput).toBeInTheDocument()
+  expect(editModalInput).toHaveValue('test1')
+  expect(editModalButton).toBeInTheDocument()
+  expect(editModalButton).toBeDisabled()
+  userEvent.type(editModalInput!, ' edit')
+  expect(editModalButton).toBeEnabled()
   userEvent.click(editModalButton!)
   editModalInput = screen.queryByPlaceholderText('Edit task...')! // null kontrolü için query kullandım
   await waitFor(() => expect(editModalInput).not.toBeInTheDocument())
