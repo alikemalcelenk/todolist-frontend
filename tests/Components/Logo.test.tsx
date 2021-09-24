@@ -12,8 +12,8 @@ test('header renders correctly for home page', async () => {
     </Provider>
   )
 
-  const HeaderText = screen.getByText('Todolist')
-  const LogoSvg = screen.getByTitle('Logo')
-  expect(HeaderText).toBeInTheDocument()
-  expect(LogoSvg).toBeInTheDocument()
+  const headerText = screen.getByText('Todolist')
+  const logoSvg = screen.getByTitle('Logo')
+  expect(headerText).toBeInTheDocument()
+  expect(logoSvg).toBeInTheDocument()
 })

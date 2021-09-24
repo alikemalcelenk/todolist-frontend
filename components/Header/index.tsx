@@ -25,6 +25,7 @@ const Header: FunctionComponent<HeaderContentType> = ({ selectedPage }) => {
 
   return (
     <Box
+      title="Header"
       className={styles.root}
       style={{
         '--root-padding':
