@@ -8,8 +8,8 @@ import { deleteTask } from '../../../../redux/actions'
 import styles from './index.module.css'
 
 // components
-import CancelButton from './ButtonCancel'
-import DeleteButton from './ButtonDelete'
+import ButtonCancel from './ButtonCancel'
+import ButtonDelete from './ButtonDelete'
 import Spinner from '../../../Spinner'
 
 // elements
@@ -46,14 +46,14 @@ const Footer: FunctionComponent<FooterContentType> = ({
 
   return (
     <Box className={styles.root}>
-      <CancelButton closeModal={closeModal} />
+      <ButtonCancel closeModal={closeModal} />
 
       {isLoadingDeleteTask ? (
         <Box className={styles.deleteButtonSpinnerBox}>
           <Spinner type="modal" />
         </Box>
       ) : (
-        <DeleteButton task={task} deleteTask={deleteTask} />
+        <ButtonDelete task={task} deleteTask={deleteTask} />
       )}
     </Box>
   )

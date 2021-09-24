@@ -87,13 +87,17 @@ const TaskCard: FunctionComponent<TaskCardContentType> = ({
         </Text>
 
         {size.width < env.TABLET_WIDTH_SIZE && (
-          <Text className={styles.dateText}>{createdTime}</Text>
+          <Text className={styles.dateText} data-testid="taskcard-time">
+            {createdTime}
+          </Text>
         )}
       </Box>
 
       <Box className={styles.rightContent}>
         {size.width >= env.TABLET_WIDTH_SIZE && (
-          <Text className={styles.dateText}>{createdTime}</Text>
+          <Text className={styles.dateText} data-testid="taskcard-time">
+            {createdTime}
+          </Text>
         )}
 
         <Button

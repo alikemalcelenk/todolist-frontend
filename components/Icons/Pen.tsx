@@ -1,6 +1,10 @@
 import * as React from 'react'
 
-function SvgPen(props: React.SVGProps<SVGSVGElement>): any {
+type customType = {
+  title?: string
+}
+
+function SvgPen(props: React.SVGProps<SVGSVGElement> & customType): any {
   return (
     <svg
       width="1em"
@@ -21,6 +25,10 @@ function SvgPen(props: React.SVGProps<SVGSVGElement>): any {
       </defs>
     </svg>
   )
+}
+
+SvgPen.defaultProps = {
+  title: 'Pen'
 }
 
 export default SvgPen

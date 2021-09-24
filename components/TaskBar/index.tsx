@@ -9,8 +9,8 @@ import { addTask } from '../../redux/actions'
 import styles from './index.module.css'
 
 // components
-import AddTaskTextInput from './TextInput'
-import AddTaskButton from './Button'
+import TaskBarTextInput from './TextInput'
+import TaskBarButton from './Button'
 
 // elements
 import Box from '../Elements/Box'
@@ -51,14 +51,14 @@ const TaskBar: FunctionComponent<TaskBarContentType> = ({
 
   return (
     <Box className={cn(styles.root, className)}>
-      <AddTaskTextInput
+      <TaskBarTextInput
         task={task}
         onTaskChange={onTaskChange}
         addTask={addTaskInner}
       />
       {task.trim() !== '' && (
-        <AddTaskButton
-          className={styles.addTaskButton}
+        <TaskBarButton
+          className={styles.taskBarButton}
           addTask={addTaskInner}
           isLoadingAddTask={isLoadingAddTask}
         />

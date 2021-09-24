@@ -1,6 +1,12 @@
 import * as React from 'react'
 
-function SvgWastebasket(props: React.SVGProps<SVGSVGElement>): any {
+type customType = {
+  title?: string
+}
+
+function SvgWastebasket(
+  props: React.SVGProps<SVGSVGElement> & customType
+): any {
   return (
     <svg
       width="1em"
@@ -22,6 +28,10 @@ function SvgWastebasket(props: React.SVGProps<SVGSVGElement>): any {
       </defs>
     </svg>
   )
+}
+
+SvgWastebasket.defaultProps = {
+  title: 'Wastebasket'
 }
 
 export default SvgWastebasket

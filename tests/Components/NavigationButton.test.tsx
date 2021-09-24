@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react'
 import NavigationButton from '../../components/Navigation/Button'
 import Provider from '../provider'
 
-test('navigation button renders correctly for completed page and selected case', async () => {
+test('navigation button renders correctly for completed page and selected case', () => {
   render(
     <Provider>
       <NavigationButton type="completed" selected />
@@ -17,7 +17,7 @@ test('navigation button renders correctly for completed page and selected case',
   expect(completedText.className.includes('selectedButtonText')).toBe(true)
 })
 
-test('navigation button renders correctly for completed page and unselected case', async () => {
+test('navigation button renders correctly for completed page and unselected case', () => {
   render(
     <Provider>
       <NavigationButton type="completed" />
@@ -29,7 +29,7 @@ test('navigation button renders correctly for completed page and unselected case
   expect(completedText.className.includes('selectedButtonText')).toBe(false)
 })
 
-test('navigation button renders correctly for incompleted page and selected case', async () => {
+test('navigation button renders correctly for incompleted page and selected case', () => {
   render(
     <Provider>
       <NavigationButton type="incompleted" selected />
@@ -41,7 +41,7 @@ test('navigation button renders correctly for incompleted page and selected case
   expect(incompletedText.className.includes('selectedButtonText')).toBe(true)
 })
 
-test('navigation button renders correctly for incompleted page and unselected case', async () => {
+test('navigation button renders correctly for incompleted page and unselected case', () => {
   render(
     <Provider>
       <NavigationButton type="incompleted" />

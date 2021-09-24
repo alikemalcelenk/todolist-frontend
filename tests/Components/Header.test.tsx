@@ -75,7 +75,7 @@ test('header renders correctly for completed page', async () => {
   expect(incompletedText.className.includes('selectedButtonText')).toBe(false)
 })
 
-test('header renders correctly for incompleted page', async () => {
+test('header renders correctly for incompleted page', () => {
   render(
     <Provider>
       <Header selectedPage="incompleted" />

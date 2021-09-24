@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react'
 import Footer from '../../components/Footer'
 import Provider from '../provider'
 
-test('footer renders correctly', async () => {
+test('footer renders correctly', () => {
   render(
     <Provider>
       <Footer />

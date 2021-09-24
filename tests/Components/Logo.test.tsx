@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react'
 import Logo from '../../components/Header'
 import Provider from '../provider'
 
-test('header renders correctly for home page', async () => {
+test('header renders correctly for home page', () => {
   render(
     <Provider>
       <Logo selectedPage="home" />

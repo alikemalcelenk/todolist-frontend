@@ -22,7 +22,7 @@ test('navigation renders correctly for home page', async () => {
   expect(incompletedText.className.includes('selectedButtonText')).toBe(false)
 })
 
-test('navigation renders correctly for completed page', async () => {
+test('navigation renders correctly for completed page', () => {
   render(
     <Provider>
       <Navigation selectedPage="completed" />
@@ -39,7 +39,7 @@ test('navigation renders correctly for completed page', async () => {
   expect(incompletedText.className.includes('selectedButtonText')).toBe(false)
 })
 
-test('navigation renders correctly for incompleted page', async () => {
+test('navigation renders correctly for incompleted page', () => {
   render(
     <Provider>
       <Navigation selectedPage="incompleted" />

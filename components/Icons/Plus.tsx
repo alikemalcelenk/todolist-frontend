@@ -1,6 +1,10 @@
 import * as React from 'react'
 
-function SvgPlus(props: React.SVGProps<SVGSVGElement>): any {
+type customType = {
+  title?: string
+}
+
+function SvgPlus(props: React.SVGProps<SVGSVGElement> & customType): any {
   return (
     <svg
       width="1em"
@@ -16,6 +20,10 @@ function SvgPlus(props: React.SVGProps<SVGSVGElement>): any {
       />
     </svg>
   )
+}
+
+SvgPlus.defaultProps = {
+  title: 'Plus'
 }
 
 export default SvgPlus

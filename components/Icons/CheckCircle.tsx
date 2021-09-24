@@ -1,6 +1,12 @@
 import * as React from 'react'
 
-function SvgCheckCircle(props: React.SVGProps<SVGSVGElement>): any {
+type customType = {
+  title?: string
+}
+
+function SvgCheckCircle(
+  props: React.SVGProps<SVGSVGElement> & customType
+): any {
   return (
     <svg
       width="1em"
@@ -26,6 +32,10 @@ function SvgCheckCircle(props: React.SVGProps<SVGSVGElement>): any {
       />
     </svg>
   )
+}
+
+SvgCheckCircle.defaultProps = {
+  title: 'CheckCircle'
 }
 
 export default SvgCheckCircle
