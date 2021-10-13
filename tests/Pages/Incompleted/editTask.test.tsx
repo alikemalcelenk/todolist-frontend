@@ -68,7 +68,7 @@ test('edit task method renders correctly in incompleted page', async () => {
 
   const loading = screen.getByTestId('spinner')
   expect(loading).toBeInTheDocument()
-  await waitFor(() => expect(loading).not.toBeInTheDocument()) // dataların çekilmesini bekledim
+  await waitFor(() => expect(loading).not.toBeInTheDocument())
 
   // given
   const editButton = screen.getAllByRole('button', { name: 'Edit' })[0]

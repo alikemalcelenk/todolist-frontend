@@ -88,8 +88,8 @@ export const reducer = (
 
     case 'REQUEST_EDIT_TASK_SUCCESS':
       taskIndex = state.tasks.findIndex((task) => task._id === action.taskId)
+      state.tasks[taskIndex].description = action.description! // eslint-disable-line no-param-reassign
       newTasks = [...state.tasks]
-      newTasks[taskIndex].description = action.description!
 
       return {
         ...state,

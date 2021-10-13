@@ -38,6 +38,7 @@ module.exports = {
     'no-underscore-dangle': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     'no-nested-ternary': 'off',
+    'react-hooks/exhaustive-deps': 'off',
     'prettier/prettier': [
       'error',
       {

@@ -1,4 +1,4 @@
-import { FunctionComponent, CSSProperties } from 'react'
+import React, { FunctionComponent, CSSProperties } from 'react'
 import cn from 'classnames'
 
 // styles
@@ -124,4 +124,4 @@ TaskCard.defaultProps = {
   className: ''
 }
 
-export default TaskCard
+export default React.memo(TaskCard)

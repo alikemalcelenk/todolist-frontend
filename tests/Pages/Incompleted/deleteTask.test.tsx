@@ -69,7 +69,7 @@ test('delete task method renders correctly in incompleted page', async () => {
 
   const loading = screen.getByTestId('spinner')
   expect(loading).toBeInTheDocument()
-  await waitFor(() => expect(loading).not.toBeInTheDocument()) // dataların çekilmesini bekledim
+  await waitFor(() => expect(loading).not.toBeInTheDocument())
 
   // given
   const deleteButton = screen.getAllByRole('button', { name: 'Delete' })[0]

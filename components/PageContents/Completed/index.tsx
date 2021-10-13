@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from 'react'
+import React, { FunctionComponent, useEffect, useCallback } from 'react'
 
 // redux
 import { connect } from 'react-redux'
@@ -36,6 +36,7 @@ type CompletedPageContentType = {
   tasks: TasksType
   isLoadingGetTasks: boolean
   isErrorGetTasks: boolean
+  isLoadingEditTask: boolean
   getTasks: () => TasksType
   toggleIscompletedOfTask: () => void
 }
@@ -43,6 +44,7 @@ type CompletedPageContentType = {
 const CompletedPageContent: FunctionComponent<CompletedPageContentType> = ({
   tasks,
   isLoadingGetTasks,
+  isLoadingEditTask,
   isErrorGetTasks,
   getTasks,
   toggleIscompletedOfTask
@@ -62,19 +64,22 @@ const CompletedPageContent: FunctionComponent<CompletedPageContentType> = ({
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const openDeleteTaskModal = (data: any) => {
+  const openDeleteTaskModal = useCallback((data: any) => {
     setModalTask(data.task)
     setIsVisibleDeleteTaskModal(true)
-  }
+  }, [])
 
   const closeDeleteTaskModal = () => {
     setIsVisibleDeleteTaskModal(false)
   }
 
-  const openEditTaskModal = (data: any) => {
-    setModalTask(data.task)
-    setIsVisibleEditTaskModal(true)
-  }
+  const openEditTaskModal = useCallback(
+    (data: any) => {
+      setModalTask(data.task)
+      setIsVisibleEditTaskModal(true)
+    },
+    [isLoadingEditTask]
+  )
 
   const closeEditTaskModal = () => {
     setIsVisibleEditTaskModal(false)
@@ -158,7 +163,8 @@ const mapStateToProps = (state: TaskReducerStateType) => {
   return {
     tasks: completedTaskSelector(state.tasks),
     isLoadingGetTasks: state.isLoadingGetTasks,
-    isErrorGetTasks: state.isErrorGetTasks
+    isErrorGetTasks: state.isErrorGetTasks,
+    isLoadingEditTask: state.isLoadingEditTask
   }
 }
 

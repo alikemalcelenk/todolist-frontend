@@ -66,7 +66,7 @@ test('toggle isCompleted of task method renders correctly in incompleted page', 
 
   const loading = screen.getByTestId('spinner')
   expect(loading).toBeInTheDocument()
-  await waitFor(() => expect(loading).not.toBeInTheDocument()) // dataların çekilmesini bekledim
+  await waitFor(() => expect(loading).not.toBeInTheDocument())
 
   // given
   const emptyCircle = screen.queryByTestId('taskcard-emptyCircle')
