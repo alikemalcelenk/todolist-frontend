@@ -35,7 +35,7 @@
     "**/*.tsx",
     "pages/index.tsx",
     "jest.config.js"
-  ],
+,   "next.config.js"  ],
   "exclude": [
     "node_modules"
   ],
