@@ -1,20 +1,20 @@
 import { FunctionComponent } from 'react'
 
-// styles
-import styles from './index.module.css'
-
 // components
-import Logo from '../Logo'
-import Navigation from '../Navigation'
+import Logo from '@components/Logo'
+import Navigation from '@components/Navigation'
 
 // elements
-import Box from '../Elements/Box'
+import Box from '@elements/Box'
 
 // hooks
-import useWindowSize from '../../hooks/useWindowSize'
+import useWindowSize from '@hooks/useWindowSize'
 
 // env
-import env from '../../config/env'
+import env from '@config/env'
+
+// styles
+import styles from './index.module.css'
 
 type HeaderContentType = {
   selectedPage: string

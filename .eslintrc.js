@@ -25,6 +25,22 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json'
   },
+  settings: {
+    // for alias
+    'import/resolver': {
+      alias: {
+        map: [
+          ['@components', './components'],
+          ['@elements', './components/Elements'],
+          ['@config', './config'],
+          ['@hooks', './hooks'],
+          ['@redux', './redux'],
+          ['@pages', './pages'],
+          ['@tests', './tests']
+        ]
+      }
+    }
+  },
   rules: {
     'linebreak-style': 'off',
     '@typescript-eslint/camelcase': 'off',
@@ -39,6 +55,7 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'off',
     'no-nested-ternary': 'off',
     'react-hooks/exhaustive-deps': 'off',
+    'import/no-unresolved': 'off',
     'prettier/prettier': [
       'error',
       {

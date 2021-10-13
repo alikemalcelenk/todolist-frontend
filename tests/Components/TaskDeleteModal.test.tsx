@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 
 // components
-import TaskDeleteModal from '../../components/Modals/TaskDelete'
+import TaskDeleteModal from '@components/Modals/TaskDelete'
 import Provider from '../provider'
 
 const task = {

@@ -29,33 +29,55 @@ export type TaskReducerState = {
 }
 
 // redux
-export type GetTaskAction = {
+export type GetTaskActionReturn = {
   type: string
 }
 
 export type AddTaskAction = {
+  task: string
+}
+
+export type AddTaskActionReturn = {
   type: string
   description: string
 }
 
 export type DeleteTaskAction = {
+  taskId: string
+}
+
+export type DeleteTaskActionReturn = {
   type: string
   taskId: string
 }
 
 export type EditTaskAction = {
+  taskId: string
+  description: string
+}
+
+export type EditTaskActionReturn = {
   type: string
   taskId: string
   description: string
 }
 
-export type ToggleIscompletedOfTaskAction = {
+export type SwitchCompletionOfTaskAction = {
+  taskId: string
+  isCompleted: boolean
+}
+
+export type SwitchCompletionOfTaskActionReturn = {
   type: string
   taskId: string
   isCompleted: boolean
 }
 
 export type SetIsErrorAnyRequestAction = {
+  isErrorAnyRequest: boolean
+}
+
+export type SetIsErrorAnyRequestActionReturn = {
   type: string
   isErrorAnyRequest: boolean
 }

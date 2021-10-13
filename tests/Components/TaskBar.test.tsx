@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 // components
-import TaskBar from '../../components/TaskBar'
+import TaskBar from '@components/TaskBar'
 import Provider from '../provider'
 
 test('taskbar renders correctly', () => {

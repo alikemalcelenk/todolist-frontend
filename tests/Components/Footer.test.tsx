@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 
 // components
-import Footer from '../../components/Footer'
+import Footer from '@components/Footer'
 import Provider from '../provider'
 
 test('footer renders correctly', () => {

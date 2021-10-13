@@ -16,7 +16,18 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    // for alias
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@elements/*": ["components/Elements/*"],
+      "@config/*": ["config/*"],
+      "@hooks/*": ["hooks/*"],
+      "@redux/*": ["redux/*"],
+      "@pages/*": ["pages/*"],
+      "@tests/*": ["tests/*"],
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -27,5 +38,6 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  
 }

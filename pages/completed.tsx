@@ -2,10 +2,10 @@ import { FunctionComponent } from 'react'
 import Head from 'next/head'
 
 // components
-import Layout from '../components/Layout'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import Content from '../components/PageContents/Completed'
+import Layout from '@components/Layout'
+import Header from '@components/Header'
+import Footer from '@components/Footer'
+import Content from '@components/PageContents/Completed'
 
 const CompletedPage: FunctionComponent = () => {
   return (

@@ -1,14 +1,14 @@
 import { FunctionComponent } from 'react'
 
-// styles
-import styles from './index.module.css'
-
 // elements
-import Button from '../../../../Elements/Button'
-import Text from '../../../../Elements/Text'
+import Button from '@elements/Button'
+import Text from '@elements/Text'
 
 // types
-import { Task as TaskType } from '../../../../../config/types'
+import { Task as TaskType } from '@config/types'
+
+// styles
+import styles from './index.module.css'
 
 type DeleteButtonContentType = {
   task: TaskType

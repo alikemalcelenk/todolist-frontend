@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 // components
-import TaskEditModal from '../../components/Modals/TaskEdit'
+import TaskEditModal from '@components/Modals/TaskEdit'
 import Provider from '../provider'
 
 const task = {

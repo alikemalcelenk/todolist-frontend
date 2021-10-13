@@ -57,7 +57,7 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
-test('toggle isCompleted of task method renders correctly in incompleted page', async () => {
+test('switch completion of task method renders correctly in incompleted page', async () => {
   render(
     <Provider>
       <IncompletedPage />

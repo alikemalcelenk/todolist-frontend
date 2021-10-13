@@ -4,10 +4,10 @@ import 'react-toastify/dist/ReactToastify.css'
 
 // redux
 import { connect } from 'react-redux'
-import { setIsErrorAnyRequest } from '../../redux/actions'
+import { setIsErrorAnyRequest } from '@redux/actions'
 
 // types
-import { TaskReducerState as TaskReducerStateType } from '../../config/types'
+import { TaskReducerState as TaskReducerStateType } from '@config/types'
 
 type ErrorAlertContentType = {
   isErrorAnyRequest: boolean

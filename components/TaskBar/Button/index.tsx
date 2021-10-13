@@ -1,18 +1,18 @@
 import { FunctionComponent } from 'react'
 import cn from 'classnames'
 
-// styles
-import styles from './index.module.css'
-
 // components
-import Spinner from '../../Spinner'
+import Spinner from '@components/Spinner'
 
 // elements
-import Button from '../../Elements/Button'
-import Box from '../../Elements/Box'
+import Button from '@elements/Button'
+import Box from '@elements/Box'
 
 // icons
-import * as Icons from '../../Icons'
+import * as Icons from '@components/Icons'
+
+// styles
+import styles from './index.module.css'
 
 type TaskBarButtonContentType = {
   className?: string

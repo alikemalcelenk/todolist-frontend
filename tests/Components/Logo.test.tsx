@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 
 // components
-import Logo from '../../components/Header'
+import Logo from '@components/Header'
 import Provider from '../provider'
 
 test('header renders correctly for home page', () => {

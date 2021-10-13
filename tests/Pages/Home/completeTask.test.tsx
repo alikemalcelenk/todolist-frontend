@@ -57,7 +57,7 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
-test('toggle isCompleted of task method renders correctly in home page', async () => {
+test('switch completion of task method renders correctly in home page', async () => {
   render(
     <Provider>
       <HomePage />

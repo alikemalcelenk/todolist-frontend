@@ -1,11 +1,11 @@
 import { FunctionComponent } from 'react'
 
+// elements
+import Button from '@elements/Button'
+import Text from '@elements/Text'
+
 // styles
 import styles from './index.module.css'
-
-// elements
-import Button from '../../../../Elements/Button'
-import Text from '../../../../Elements/Text'
 
 type CancelButtonContentType = {
   closeModal: () => void

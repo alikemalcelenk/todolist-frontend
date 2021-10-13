@@ -1,14 +1,14 @@
 import { FunctionComponent } from 'react'
 
-// styles
-import styles from './index.module.css'
-
 // elements
-import Box from '../../../Elements/Box'
-import Text from '../../../Elements/Text'
+import Box from '@elements/Box'
+import Text from '@elements/Text'
 
 // icons
-import * as Icons from '../../../Icons'
+import * as Icons from '@components/Icons'
+
+// styles
+import styles from './index.module.css'
 
 const Header: FunctionComponent = () => {
   return (

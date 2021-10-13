@@ -1,15 +1,15 @@
 import { FunctionComponent } from 'react'
 import Link from 'next/link'
 
-// styles
-import styles from './index.module.css'
-
 // elements
-import Box from '../Elements/Box'
-import Text from '../Elements/Text'
+import Box from '@elements/Box'
+import Text from '@elements/Text'
 
 // icons
 import * as Icons from '../Icons'
+
+// styles
+import styles from './index.module.css'
 
 const Logo: FunctionComponent = () => {
   return (

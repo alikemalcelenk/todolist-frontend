@@ -1,35 +1,33 @@
 import React, { FunctionComponent, CSSProperties } from 'react'
 import cn from 'classnames'
 
-// styles
-import styles from './index.module.css'
+// elements
+import Box from '@elements/Box'
+import Text from '@elements/Text'
+import Button from '@elements/Button'
 
 // components
-import TimeCalculator from '../TimeCalculator'
-
-// elements
-import Box from '../Elements/Box'
-import Text from '../Elements/Text'
-import Button from '../Elements/Button'
-
-// icons
-import * as Icons from '../Icons'
+import TimeCalculator from '@components/TimeCalculator'
+import * as Icons from '@components/Icons'
 
 // types
-import { Task as TaskType } from '../../config/types'
+import { Task as TaskType } from '@config/types'
 
 // hooks
-import useWindowSize from '../../hooks/useWindowSize'
+import useWindowSize from '@hooks/useWindowSize'
 
 // env
-import env from '../../config/env'
+import env from '@config/env'
+
+// styles
+import styles from './index.module.css'
 
 type TaskCardContentType = {
   task: TaskType
   className?: string
   openDeleteTaskModal: (task: any) => void
   openEditTaskModal: (task: any) => void
-  toggleIscompletedOfTask: (task: any) => void
+  switchCompletionOfTask: (task: any) => void
 }
 
 const TaskCard: FunctionComponent<TaskCardContentType> = ({
@@ -37,7 +35,7 @@ const TaskCard: FunctionComponent<TaskCardContentType> = ({
   className,
   openDeleteTaskModal,
   openEditTaskModal,
-  toggleIscompletedOfTask
+  switchCompletionOfTask
 }) => {
   const size = useWindowSize()
 
@@ -56,7 +54,7 @@ const TaskCard: FunctionComponent<TaskCardContentType> = ({
         aria-label="Switch Case"
         className={styles.leftContent}
         onClick={() => {
-          toggleIscompletedOfTask({
+          switchCompletionOfTask({
             taskId: task._id,
             isCompleted: task.isCompleted
           })

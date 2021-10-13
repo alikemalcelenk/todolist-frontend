@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect'
 
 // types
-import { Task as TaskType } from '../../config/types'
+import { Task as TaskType } from '@config/types'
 
 const taskSelector = (state: any) => state
 

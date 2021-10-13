@@ -1,10 +1,10 @@
 import { FunctionComponent } from 'react'
 
+// elements
+import Input from '@elements/Input'
+
 // styles
 import styles from './index.module.css'
-
-// elements
-import Input from '../../Elements/Input'
 
 type TaskBarTextInputContentType = {
   task: string

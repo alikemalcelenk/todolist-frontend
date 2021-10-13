@@ -2,23 +2,23 @@ import { FunctionComponent, useRef, useEffect } from 'react'
 
 // redux
 import { connect } from 'react-redux'
-import { editTask } from '../../../../redux/actions'
-
-// styles
-import styles from './index.module.css'
-
-// components
-import UpdateButton from './ButtonUpdate'
-import CancelButton from './ButtonCancel'
-import Spinner from '../../../Spinner'
+import { editTask } from '@redux/actions'
 
 // elements
-import Box from '../../../Elements/Box'
+import Box from '@elements/Box'
 // types
 import {
   Task as TaskType,
   TaskReducerState as TaskReducerStateType
-} from '../../../../config/types'
+} from '@config/types'
+
+// components
+import Spinner from '@components/Spinner'
+import UpdateButton from './ButtonUpdate'
+import CancelButton from './ButtonCancel'
+
+// styles
+import styles from './index.module.css'
 
 type FooterContentType = {
   task: TaskType

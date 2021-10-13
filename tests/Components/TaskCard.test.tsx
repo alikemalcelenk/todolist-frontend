@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 
 // components
-import TaskCard from '../../components/TaskCard'
+import TaskCard from '@components/TaskCard'
 import Provider from '../provider'
 
 const completedTask = {
@@ -26,7 +26,7 @@ test('taskcard renders correctly for completed case', () => {
         task={completedTask}
         openDeleteTaskModal={() => {}}
         openEditTaskModal={() => {}}
-        toggleIscompletedOfTask={() => {}}
+        switchCompletionOfTask={() => {}}
       />
     </Provider>
   )
@@ -70,7 +70,7 @@ test('taskcard renders correctly for incompleted case', () => {
         task={incompletedTask}
         openDeleteTaskModal={() => {}}
         openEditTaskModal={() => {}}
-        toggleIscompletedOfTask={() => {}}
+        switchCompletionOfTask={() => {}}
       />
     </Provider>
   )

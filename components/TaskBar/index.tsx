@@ -3,7 +3,7 @@ import cn from 'classnames'
 
 // redux
 import { connect } from 'react-redux'
-import { addTask } from '../../redux/actions'
+import { addTask } from '@redux/actions'
 
 // styles
 import styles from './index.module.css'

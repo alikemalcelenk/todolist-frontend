@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 
 // components
-import NavigationButton from '../../components/Navigation/Button'
+import NavigationButton from '@components/Navigation/Button'
 import Provider from '../provider'
 
 test('navigation button renders correctly for completed page and selected case', () => {

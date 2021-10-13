@@ -1,14 +1,14 @@
 import { FunctionComponent } from 'react'
 import cn from 'classnames'
 
+// elements
+import Box from '@elements/Box'
+
 // styles
 import styles from './index.module.css'
 
 // components
 import NavigationButton from './Button'
-
-// elements
-import Box from '../Elements/Box'
 
 type NavigationContentType = {
   className?: string

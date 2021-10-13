@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 
 // components
-import Navigation from '../../components/Navigation'
+import Navigation from '@components/Navigation'
 import Provider from '../provider'
 
 test('navigation renders correctly for home page', async () => {

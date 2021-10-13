@@ -20,6 +20,6 @@ export const TaskCard: Story = () => (
     task={task}
     openDeleteTaskModal={() => true}
     openEditTaskModal={() => true}
-    toggleIscompletedOfTask={() => true}
+    switchCompletionOfTask={() => true}
   />
 )

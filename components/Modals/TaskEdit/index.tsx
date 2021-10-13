@@ -1,6 +1,12 @@
 import { useEffect, useState, FunctionComponent, createElement } from 'react'
 import Modal from 'react-modal'
 
+// elements
+import Box from '@elements/Box'
+
+// types
+import { Task as TaskType } from '@config/types'
+
 // styles
 import styles from './index.module.css'
 
@@ -8,12 +14,6 @@ import styles from './index.module.css'
 import Header from './Header'
 import Content from './Content'
 import Footer from './Footer'
-
-// elements
-import Box from '../../Elements/Box'
-
-// types
-import { Task as TaskType } from '../../../config/types'
 
 type EditTaskModalContentType = {
   task: TaskType

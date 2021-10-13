@@ -1,11 +1,11 @@
 import { FunctionComponent } from 'react'
 
+// elements
+import Box from '@elements/Box'
+import Text from '@elements/Text'
+
 // styles
 import styles from './index.module.css'
-
-// elements
-import Box from '../Elements/Box'
-import Text from '../Elements/Text'
 
 const Footer: FunctionComponent = () => {
   return (

@@ -2,24 +2,24 @@ import { FunctionComponent, useRef, useEffect } from 'react'
 
 // redux
 import { connect } from 'react-redux'
-import { deleteTask } from '../../../../redux/actions'
-
-// styles
-import styles from './index.module.css'
-
-// components
-import ButtonCancel from './ButtonCancel'
-import ButtonDelete from './ButtonDelete'
-import Spinner from '../../../Spinner'
+import { deleteTask } from '@redux/actions'
 
 // elements
-import Box from '../../../Elements/Box'
+import Box from '@elements/Box'
 
 // types
 import {
   Task as TaskType,
   TaskReducerState as TaskReducerStateType
-} from '../../../../config/types'
+} from '@config/types'
+
+// components
+import Spinner from '@components/Spinner'
+import ButtonCancel from './ButtonCancel'
+import ButtonDelete from './ButtonDelete'
+
+// styles
+import styles from './index.module.css'
 
 type FooterContentType = {
   task: TaskType

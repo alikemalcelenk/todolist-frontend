@@ -2,18 +2,18 @@ import { FunctionComponent } from 'react'
 import cn from 'classnames'
 import Link from 'next/link'
 
-// styles
-import styles from './index.module.css'
-
 // elements
-import Box from '../../Elements/Box'
-import Text from '../../Elements/Text'
+import Box from '@elements/Box'
+import Text from '@elements/Text'
 
 // hooks
-import useWindowSize from '../../../hooks/useWindowSize'
+import useWindowSize from '@hooks/useWindowSize'
 
 // env
-import env from '../../../config/env'
+import env from '@config/env'
+
+// styles
+import styles from './index.module.css'
 
 type NavigationButtonContentType = {
   type: string

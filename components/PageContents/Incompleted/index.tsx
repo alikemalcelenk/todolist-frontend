@@ -2,22 +2,19 @@ import React, { FunctionComponent, useEffect, useCallback } from 'react'
 
 // redux
 import { connect } from 'react-redux'
-import { getTasks, toggleIscompletedOfTask } from '../../../redux/actions'
-import { incompletedTaskSelector } from '../../../redux/selectors'
-
-// styles
-import styles from './index.module.css'
+import { getTasks, switchCompletionOfTask } from '@redux/actions'
+import { incompletedTaskSelector } from '@redux/selectors'
 
 // components
-import TaskCard from '../../TaskCard'
-import Spinner from '../../Spinner'
-import DeleteTaskModal from '../../Modals/TaskDelete'
-import EditTaskModal from '../../Modals/TaskEdit'
-import ErrorAlert from '../../ErrorAlert'
+import TaskCard from '@components/TaskCard'
+import Spinner from '@components/Spinner'
+import DeleteTaskModal from '@components/Modals/TaskDelete'
+import EditTaskModal from '@components/Modals/TaskEdit'
+import ErrorAlert from '@components/ErrorAlert'
 
 // elements
-import Box from '../../Elements/Box'
-import Text from '../../Elements/Text'
+import Box from '@elements/Box'
+import Text from '@elements/Text'
 
 // hooks
 import useWindowSize from '../../../hooks/useWindowSize'
@@ -32,13 +29,16 @@ import {
   TaskReducerState as TaskReducerStateType
 } from '../../../config/types'
 
+// styles
+import styles from './index.module.css'
+
 type IncompletedPageContentType = {
   tasks: TasksType
   isLoadingGetTasks: boolean
   isLoadingEditTask: boolean
   isErrorGetTasks: boolean
   getTasks: () => TasksType
-  toggleIscompletedOfTask: () => void
+  switchCompletionOfTask: () => void
 }
 
 const IncompletedPageContent: FunctionComponent<IncompletedPageContentType> = ({
@@ -47,7 +47,7 @@ const IncompletedPageContent: FunctionComponent<IncompletedPageContentType> = ({
   isLoadingEditTask,
   isErrorGetTasks,
   getTasks,
-  toggleIscompletedOfTask
+  switchCompletionOfTask
 }) => {
   const size = useWindowSize()
 
@@ -94,7 +94,7 @@ const IncompletedPageContent: FunctionComponent<IncompletedPageContentType> = ({
         className={styles.taskCard}
         openDeleteTaskModal={openDeleteTaskModal}
         openEditTaskModal={openEditTaskModal}
-        toggleIscompletedOfTask={toggleIscompletedOfTask}
+        switchCompletionOfTask={switchCompletionOfTask}
       />
     ))
 
@@ -170,7 +170,7 @@ const mapStateToProps = (state: TaskReducerStateType) => {
 
 const mapActionsToProps = {
   getTasks,
-  toggleIscompletedOfTask
+  switchCompletionOfTask
 }
 
 export default connect(

@@ -6,11 +6,11 @@ import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 
 // components
-import InompletedPage from '../../../pages/incompleted'
-import Provider from '../../provider'
+import InompletedPage from '@pages/incompleted'
+import Provider from '@tests/provider'
 
 // config
-import env from '../../../config/env'
+import env from '@config/env'
 
 const baseURL = `${env.API_SERVICE_URL}`
 

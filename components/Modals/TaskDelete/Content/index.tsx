@@ -1,14 +1,14 @@
 import { FunctionComponent } from 'react'
 
-// styles
-import styles from './index.module.css'
-
 // elements
-import Box from '../../../Elements/Box'
-import Text from '../../../Elements/Text'
+import Box from '@elements/Box'
+import Text from '@elements/Text'
 
 // types
-import { Task as TaskType } from '../../../../config/types'
+import { Task as TaskType } from '@config/types'
+
+// styles
+import styles from './index.module.css'
 
 type ContentPageContentType = {
   task: TaskType

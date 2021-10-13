@@ -1,11 +1,11 @@
 import { FunctionComponent } from 'react'
 
+// elements
+import Box from '@elements/Box'
+import Textarea from '@elements/Textarea'
+
 // styles
 import styles from './index.module.css'
-
-// elements
-import Box from '../../../Elements/Box'
-import Textarea from '../../../Elements/Textarea'
 
 type ContentPageContentType = {
   newTask: string

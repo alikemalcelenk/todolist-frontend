@@ -2,7 +2,7 @@
 import {
   TaskAction as TaskActionType,
   TaskReducerState as TaskReducerStateType
-} from '../../config/types'
+} from '@config/types'
 
 const initialState: TaskReducerStateType = {
   tasks: [],
@@ -23,10 +23,10 @@ export const reducer = (
 
   switch (action.type) {
     // GET_TASKS
-    case 'REQUEST_GET_TASKS':
+    case 'GET_TASKS_REQUEST':
       return { ...state, isLoadingGetTasks: true, isErrorGetTasks: false }
 
-    case 'REQUEST_GET_TASKS_SUCCESS':
+    case 'GET_TASKS_SUCCESS':
       return {
         ...state,
         tasks: action.tasks!,
@@ -34,14 +34,14 @@ export const reducer = (
         isErrorGetTasks: false
       }
 
-    case 'REQUEST_GET_TASKS_FAILED':
+    case 'GET_TASKS_FAILURE':
       return { ...state, isLoadingGetTasks: false, isErrorGetTasks: true }
 
     // ADD_TASK
-    case 'REQUEST_ADD_TASK':
+    case 'ADD_TASK_REQUEST':
       return { ...state, isLoadingAddTask: true }
 
-    case 'REQUEST_ADD_TASK_SUCCESS':
+    case 'ADD_TASK_SUCCESS':
       newTasks = [...state.tasks]
       newTasks.unshift(action.task!)
 
@@ -51,17 +51,17 @@ export const reducer = (
         isLoadingAddTask: false
       }
 
-    case 'REQUEST_ADD_TASK_FAILED':
+    case 'ADD_TASK_FAILURE':
       return { ...state, isLoadingAddTask: false, isErrorAnyRequest: true }
 
     // DELETE_TASK
-    case 'REQUEST_DELETE_TASK':
+    case 'DELETE_TASK_REQUEST':
       return {
         ...state,
         isLoadingDeleteTask: true
       }
 
-    case 'REQUEST_DELETE_TASK_SUCCESS':
+    case 'DELETE_TASK_SUCCESS':
       taskIndex = state.tasks.findIndex((task) => task._id! === action.taskId)
       newTasks = [...state.tasks]
       newTasks.splice(taskIndex, 1)
@@ -72,7 +72,7 @@ export const reducer = (
         isLoadingDeleteTask: false
       }
 
-    case 'REQUEST_DELETE_TASK_FAILED':
+    case 'DELETE_TASK_FAILURE':
       return {
         ...state,
         isLoadingDeleteTask: false,
@@ -80,13 +80,13 @@ export const reducer = (
       }
 
     // EDIT TASK
-    case 'REQUEST_EDIT_TASK':
+    case 'EDIT_TASK_REQUEST':
       return {
         ...state,
         isLoadingEditTask: true
       }
 
-    case 'REQUEST_EDIT_TASK_SUCCESS':
+    case 'EDIT_TASK_SUCCESS':
       taskIndex = state.tasks.findIndex((task) => task._id === action.taskId)
       state.tasks[taskIndex].description = action.description! // eslint-disable-line no-param-reassign
       newTasks = [...state.tasks]
@@ -97,15 +97,15 @@ export const reducer = (
         isLoadingEditTask: false
       }
 
-    case 'REQUEST_EDIT_TASK_FAILED':
+    case 'EDIT_TASK_FAILURE':
       return {
         ...state,
         isLoadingEditTask: false,
         isErrorAnyRequest: true
       }
 
-    // TOGGLE_ISCOMPLETED_OF_TASK
-    case 'REQUEST_TOGGLE_ISCOMPLETED_OF_TASK_SUCCESS':
+    // SWITCH_COMPLETION_OF_TASK
+    case 'SWITCH_COMPLETION_OF_TASK_SUCCESS':
       taskIndex = state.tasks.findIndex((task) => task._id === action.taskId)
       newTasks = [...state.tasks]
       newTasks[taskIndex] = {
@@ -115,7 +115,7 @@ export const reducer = (
 
       return { ...state, tasks: newTasks }
 
-    case 'REQUEST_TOGGLE_ISCOMPLETED_OF_TASK_FAILED':
+    case 'SWITCH_COMPLETION_OF_TASK__FAILURE':
       return { ...state, isErrorAnyRequest: true }
 
     // SET_IS_ERROR_ANY_REQUEST

@@ -2,35 +2,35 @@ import React, { FunctionComponent, useEffect, useCallback } from 'react'
 
 // redux
 import { connect } from 'react-redux'
-import { getTasks, toggleIscompletedOfTask } from '../../../redux/actions'
-import { completedTaskSelector } from '../../../redux/selectors'
-
-// styles
-import styles from './index.module.css'
+import { getTasks, switchCompletionOfTask } from '@redux/actions'
+import { completedTaskSelector } from '@redux/selectors'
 
 // components
-import TaskCard from '../../TaskCard'
-import Spinner from '../../Spinner'
-import DeleteTaskModal from '../../Modals/TaskDelete'
-import EditTaskModal from '../../Modals/TaskEdit'
-import ErrorAlert from '../../ErrorAlert'
+import TaskCard from '@components/TaskCard'
+import Spinner from '@components/Spinner'
+import DeleteTaskModal from '@components/Modals/TaskDelete'
+import EditTaskModal from '@components/Modals/TaskEdit'
+import ErrorAlert from '@components/ErrorAlert'
 
 // elements
-import Box from '../../Elements/Box'
-import Text from '../../Elements/Text'
+import Box from '@elements/Box'
+import Text from '@elements/Text'
 
 // hooks
-import useWindowSize from '../../../hooks/useWindowSize'
+import useWindowSize from '@hooks/useWindowSize'
 
 // env
-import env from '../../../config/env'
+import env from '@config/env'
 
 // types
 import {
   Task as TaskType,
   Tasks as TasksType,
   TaskReducerState as TaskReducerStateType
-} from '../../../config/types'
+} from '@config/types'
+
+// styles
+import styles from './index.module.css'
 
 type CompletedPageContentType = {
   tasks: TasksType
@@ -38,7 +38,7 @@ type CompletedPageContentType = {
   isErrorGetTasks: boolean
   isLoadingEditTask: boolean
   getTasks: () => TasksType
-  toggleIscompletedOfTask: () => void
+  switchCompletionOfTask: () => void
 }
 
 const CompletedPageContent: FunctionComponent<CompletedPageContentType> = ({
@@ -47,7 +47,7 @@ const CompletedPageContent: FunctionComponent<CompletedPageContentType> = ({
   isLoadingEditTask,
   isErrorGetTasks,
   getTasks,
-  toggleIscompletedOfTask
+  switchCompletionOfTask
 }) => {
   const size = useWindowSize()
 
@@ -94,7 +94,7 @@ const CompletedPageContent: FunctionComponent<CompletedPageContentType> = ({
         className={styles.taskCard}
         openDeleteTaskModal={openDeleteTaskModal}
         openEditTaskModal={openEditTaskModal}
-        toggleIscompletedOfTask={toggleIscompletedOfTask}
+        switchCompletionOfTask={switchCompletionOfTask}
       />
     ))
 
@@ -170,7 +170,7 @@ const mapStateToProps = (state: TaskReducerStateType) => {
 
 const mapActionsToProps = {
   getTasks,
-  toggleIscompletedOfTask
+  switchCompletionOfTask
 }
 
 export default connect(
