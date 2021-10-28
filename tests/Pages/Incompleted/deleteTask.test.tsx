@@ -7,7 +7,6 @@ import { setupServer } from 'msw/node'
 
 // components
 import IncompletedPage from '@pages/incompleted'
-
 import Provider from '@tests/provider'
 
 // config

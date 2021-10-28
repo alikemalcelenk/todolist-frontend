@@ -5,7 +5,8 @@ import { connect } from 'react-redux'
 import { editTask } from '@redux/actions'
 
 // elements
-import Box from '@elements/Box'
+import { Box } from '@elements'
+
 // types
 import {
   Task as TaskType,

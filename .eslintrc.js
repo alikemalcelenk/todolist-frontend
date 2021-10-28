@@ -31,11 +31,12 @@ module.exports = {
       alias: {
         map: [
           ['@components', './components'],
-          ['@elements', './components/Elements'],
+          ['@elements', './components/Elements/index.tsx'],
           ['@config', './config'],
           ['@hooks', './hooks'],
           ['@redux', './redux'],
           ['@pages', './pages'],
+          ['@utils', './utils'],
           ['@tests', './tests']
         ]
       }

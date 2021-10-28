@@ -5,8 +5,7 @@ import cn from 'classnames'
 import Spinner from '@components/Spinner'
 
 // elements
-import Button from '@elements/Button'
-import Box from '@elements/Box'
+import { Box, Button } from '@elements'
 
 // icons
 import * as Icons from '@components/Icons'

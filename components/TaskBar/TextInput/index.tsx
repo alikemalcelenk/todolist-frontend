@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react'
 
 // elements
-import Input from '@elements/Input'
+import { Input } from '@elements'
 
 // styles
 import styles from './index.module.css'

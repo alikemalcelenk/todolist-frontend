@@ -2,8 +2,7 @@ import { FunctionComponent } from 'react'
 import cn from 'classnames'
 
 // elements
-import Button from '@elements/Button'
-import Text from '@elements/Text'
+import { Button, Text } from '@elements'
 
 // types
 import { Task as TaskType } from '@config/types'

@@ -3,8 +3,7 @@ import cn from 'classnames'
 import Link from 'next/link'
 
 // elements
-import Box from '@elements/Box'
-import Text from '@elements/Text'
+import { Box, Text } from '@elements'
 
 // hooks
 import useWindowSize from '@hooks/useWindowSize'

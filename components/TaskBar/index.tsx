@@ -5,18 +5,18 @@ import cn from 'classnames'
 import { connect } from 'react-redux'
 import { addTask } from '@redux/actions'
 
-// styles
-import styles from './index.module.css'
+// elements
+import { Box } from '@elements'
+
+// types
+import { TaskReducerState as TaskReducerStateType } from '@config/types'
 
 // components
 import TaskBarTextInput from './TextInput'
 import TaskBarButton from './Button'
 
-// elements
-import Box from '../Elements/Box'
-
-// types
-import { TaskReducerState as TaskReducerStateType } from '../../config/types'
+// styles
+import styles from './index.module.css'
 
 type TaskBarContentType = {
   className?: string

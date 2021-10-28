@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react'
 
 // elements
-import Box from '@elements/Box'
+import { Box } from '@elements'
 
 // styles
 import styles from './index.module.css'

@@ -2,11 +2,11 @@ import { FunctionComponent } from 'react'
 import Loader from 'react-loader-spinner'
 import cn from 'classnames'
 
+// celements
+import { Box } from '@elements'
+
 // style
 import styles from './index.module.css'
-
-// celements
-import Box from '../Elements/Box'
 
 type SpinnerContentType = {
   className?: string

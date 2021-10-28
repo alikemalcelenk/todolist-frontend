@@ -1,8 +1,7 @@
 import { FunctionComponent } from 'react'
 
 // elements
-import Button from '@elements/Button'
-import Text from '@elements/Text'
+import { Button, Text } from '@elements'
 
 // styles
 import styles from './index.module.css'

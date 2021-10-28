@@ -2,7 +2,7 @@ import { FunctionComponent, createElement } from 'react'
 import Modal from 'react-modal'
 
 // elements
-import Box from '@elements/Box'
+import { Box } from '@elements'
 
 // types
 import { Task as TaskType } from '@config/types'

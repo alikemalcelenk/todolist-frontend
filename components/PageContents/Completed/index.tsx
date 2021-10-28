@@ -13,8 +13,7 @@ import EditTaskModal from '@components/Modals/TaskEdit'
 import ErrorAlert from '@components/ErrorAlert'
 
 // elements
-import Box from '@elements/Box'
-import Text from '@elements/Text'
+import { Box, Text } from '@elements'
 
 // hooks
 import useWindowSize from '@hooks/useWindowSize'

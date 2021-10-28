@@ -20,13 +20,30 @@
     // for alias
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["components/*"],
-      "@elements/*": ["components/Elements/*"],
-      "@config/*": ["config/*"],
-      "@hooks/*": ["hooks/*"],
-      "@redux/*": ["redux/*"],
-      "@pages/*": ["pages/*"],
-      "@tests/*": ["tests/*"],
+      "@components/*": [
+        "components/*"
+      ],
+      "@elements": [
+        "components/Elements/index.tsx"
+      ],
+      "@config/*": [
+        "config/*"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
+      "@redux/*": [
+        "redux/*"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
+      "@tests/*": [
+        "tests/*"
+      ],
     }
   },
   "include": [
@@ -34,10 +51,10 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/index.tsx",
-    "jest.config.js"
-,   "next.config.js"  ],
+    "jest.config.js",
+    "next.config.js"
+  ],
   "exclude": [
     "node_modules"
   ],
-  
 }

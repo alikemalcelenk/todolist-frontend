@@ -2,8 +2,7 @@ import { FunctionComponent } from 'react'
 import Link from 'next/link'
 
 // elements
-import Box from '@elements/Box'
-import Text from '@elements/Text'
+import { Box, Text } from '@elements'
 
 // icons
 import * as Icons from '../Icons'

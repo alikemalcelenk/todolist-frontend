@@ -1,8 +1,7 @@
 import { FunctionComponent } from 'react'
 
 // elements
-import Box from '@elements/Box'
-import Textarea from '@elements/Textarea'
+import { Box, Textarea } from '@elements'
 
 // styles
 import styles from './index.module.css'

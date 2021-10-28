@@ -1,8 +1,7 @@
 import { FunctionComponent } from 'react'
 
 // elements
-import Box from '@elements/Box'
-import Text from '@elements/Text'
+import { Box, Text } from '@elements'
 
 // icons
 import * as Icons from '@components/Icons'

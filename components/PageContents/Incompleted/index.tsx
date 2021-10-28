@@ -13,21 +13,20 @@ import EditTaskModal from '@components/Modals/TaskEdit'
 import ErrorAlert from '@components/ErrorAlert'
 
 // elements
-import Box from '@elements/Box'
-import Text from '@elements/Text'
+import { Box, Text } from '@elements'
 
 // hooks
-import useWindowSize from '../../../hooks/useWindowSize'
+import useWindowSize from '@hooks/useWindowSize'
 
 // env
-import env from '../../../config/env'
+import env from '@config/env'
 
 // types
 import {
   Task as TaskType,
   Tasks as TasksType,
   TaskReducerState as TaskReducerStateType
-} from '../../../config/types'
+} from '@config/types'
 
 // styles
 import styles from './index.module.css'

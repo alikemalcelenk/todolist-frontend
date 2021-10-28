@@ -2,13 +2,13 @@ import React, { FunctionComponent, CSSProperties } from 'react'
 import cn from 'classnames'
 
 // elements
-import Box from '@elements/Box'
-import Text from '@elements/Text'
-import Button from '@elements/Button'
+import { Box, Button, Text } from '@elements'
 
 // components
-import TimeCalculator from '@components/TimeCalculator'
 import * as Icons from '@components/Icons'
+
+// utils
+import TimeCalculator from '@utils/TimeCalculator'
 
 // types
 import { Task as TaskType } from '@config/types'

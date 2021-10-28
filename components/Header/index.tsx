@@ -5,7 +5,7 @@ import Logo from '@components/Logo'
 import Navigation from '@components/Navigation'
 
 // elements
-import Box from '@elements/Box'
+import { Box } from '@elements'
 
 // hooks
 import useWindowSize from '@hooks/useWindowSize'
